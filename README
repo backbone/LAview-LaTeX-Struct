@@ -1,4 +1,4 @@
-LaTeX representation in the memory + Scanner + Generator.
+LaTeX representation in the memory + Parser (GScanner) + Generator.
 
 Git repo: https://git.backbone.ws/laview/latex-struct
 Issue tracker: https://chili.backbone.ws/projects/latex-struct
