@@ -1,0 +1,135 @@
+%% LyX 2.0.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[russian]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=1cm,bmargin=2cm,lmargin=2cm,rmargin=1cm}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{textcomp}
+\usepackage{multirow}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\DeclareRobustCommand{\cyrtext}{%
+  \fontencoding{T2A}\selectfont\def\encodingdefault{T2A}}
+\DeclareRobustCommand{\textcyr}[1]{\leavevmode{\cyrtext #1}}
+\AtBeginDocument{\DeclareFontEncoding{T2A}{}{}}
+
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{multirow}
+
+
+
+\usepackage{babel}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+Номера замеров: {[}Zamer.List{]}
+
+{[}Zamer.Stend.Last{]}
+
+\begin{flushright}
+Форма 07-622
+\par\end{flushright}
+
+\begin{longtable}{|>{\centering}p{0.11\linewidth}||>{\raggedright}p{0.05\linewidth}|c|c|c|c|c|c|}
+\hline 
+\multicolumn{8}{|c|}{\textbf{\large Сводный протокол результатов испытания двигателя }}\tabularnewline
+\multicolumn{8}{|c|}{\textbf{\large ВК-2500-02 № {[}Zamer.EngineData.Last{]}}}\tabularnewline
+\multicolumn{8}{|c|}{Стенд № {[}Zamer.Stend.Last{]} ~~ ИУД СИК ~ Дата: {[}Zamer.Time2.Last{]} }\tabularnewline
+\multicolumn{8}{|c|}{Рн = {[}Zamer.Ph.Last{]} мм рт ст~~ tвх = {[}Zamer.tvh\_zv.Last{]}
+$\,^{\circ}\mbox{C}$}\tabularnewline
+\multicolumn{8}{|c|}{Характеристика ~~~~~~~ Акт сдачи, контрольные точки}\tabularnewline
+\endhead
+\hline 
+\multicolumn{2}{|c|}{} & Nе & nтк & tг & Gт & Gв  & Пк\tabularnewline
+\hline 
+\multicolumn{2}{|>{\centering}p{0.07\paperwidth}|}{Режим МГ} & \multicolumn{6}{c|}{}\tabularnewline
+\hline 
+\multicolumn{2}{|l|}{Факт.} & {[}AvZam.Ne.modeMG{]} & {[}AvZam.ntk.modeMG{]} & {[}AvZam.tg.modeMG{]} & {[}AvZam.Gt.modeMG{]} & {[}AvZam.Gv.modeMG{]} & {[}AvZam.Pik.modeMG{]}\tabularnewline
+\hline 
+\multicolumn{2}{|l|}{ТУ} & {[}TU.Ne.modeMG{]} & {[}TU.ntk.modeMG{]} & {[}TU.tg.modeMG{]} & {[}TU.Gt.modeMG{]} & {[}TU.Gv.modeMG{]} & {[}TU.Pik.modeMG{]}\tabularnewline
+\hline 
+\multicolumn{2}{|l|}{Откл.} & {[}Diff.Ne.modeMG{]} & {[}Diff.ntk.modeMG{]} & {[}Diff.tg.modeMG{]} & {[}Diff.Gt.modeMG{]} & {[}Diff.Gv.modeMG{]} & {[}Diff.Pik.modeMG{]}\tabularnewline
+\hline 
+\end{longtable}%
+\begin{longtable}{|c|c|c|c|c|c|c|c|}
+\hline 
+Режим & Ne пр & nтк пр & tг пр & Gт пр & Ce & Gв пр & Пк\tabularnewline
+\hline 
+ЧР & {[}AvZam.Ne\_pr.modeChR{]} & {[}AvZam.ntk\_pr.modeChR{]} & {[}AvZam.tg\_pr.modeChR{]} & {[}AvZam.Gt\_pr.modeChR{]} & {[}AvZam.Ce.modeChR{]} & {[}AvZam.Gv\_pr.modeChR{]} & {[}AvZam.Pik.modeChR{]}\tabularnewline
+\hline 
+Взлет & {[}AvZam.Ne\_pr.modeVZL{]} & {[}AvZam.ntk\_pr.modeVZL{]} & {[}AvZam.tg\_pr.modeVZL{]} & {[}AvZam.Gt\_pr.modeVZL{]} & {[}AvZam.Ce.modeVZL{]} & {[}AvZam.Gv\_pr.modeVzl{]} & {[}AvZam.Pik.modeVzl{]}\tabularnewline
+\hline 
+Номинал & {[}AvZam.Ne\_pr.modeMP{]} & {[}AvZam.ntk\_pr.modeMP{]} & {[}AvZam.tg\_pr.modeMP{]} & {[}AvZam.Gt\_pr.modeMP{]} & {[}AvZam.Ce.modeMP{]} & {[}AvZam.Gv\_pr.modeMP{]} & {[}AvZam.Pik.modeMP{]}\tabularnewline
+\hline 
+1крейс. & {[}AvZam.Ne\_pr.mode1KR{]} & {[}AvZam.ntk\_pr.mode1KR{]} & {[}AvZam.tg\_pr.mode1KR{]} & {[}AvZam.Gt\_pr.mode1KR{]} & {[}AvZam.Ce.mode1KR{]} & {[}AvZam.Gv\_pr.mode1KR{]} & {[}AvZam.Pik.mode1KR{]}\tabularnewline
+\hline 
+2крейс. & {[}AvZam.Ne\_pr.mode2KR{]} & {[}AvZam.ntk\_pr.mode2KR{]} & {[}AvZam.tg\_pr.mode2KR{]} & {[}AvZam.Gt\_pr.mode2KR{]} & {[}AvZam.Ce.mode2KR{]} & {[}AvZam.Gv\_pr.mode2KR{]} & {[}AvZam.Pik.mode2KR{]}\tabularnewline
+\hline 
+\multicolumn{2}{|c|}{А0} & {[}Coef.ntk\_pr.0{]} & {[}Coef.tg\_pr.0{]} & {[}Coef.Gt\_pr.0{]} & {[}Coef.Ce.0{]} & {[}Coef.Gv\_pr.0{]} & {[}Coef.Pik.0{]}\tabularnewline
+\hline 
+\multicolumn{2}{|c|}{А1} & {[}Coef.ntk\_pr.1{]} & {[}Coef.tg\_pr.1{]} & {[}Coef.Gt\_pr.1{]} & {[}Coef.Ce.1{]} & {[}Coef.Gv\_pr.1{]} & {[}Coef.Pik.1{]}\tabularnewline
+\hline 
+\multicolumn{2}{|c|}{А2} & {[}Coef.ntk\_pr.2{]} & {[}Coef.tg\_pr.2{]} & {[}Coef.Gt\_pr.2{]} & {[}Coef.Ce.2{]} & {[}Coef.Gv\_pr.2{]} & {[}Coef.Pik.2{]}\tabularnewline
+\hline 
+\multicolumn{2}{|c|}{СКО} & {[}Coef.ntk\_pr.SKO{]} & {[}Coef.tg\_pr.SKO{]} & {[}Coef.Gt\_pr.SKO{]} & {[}Coef.Ce.SKO{]} & {[}Coef.Gv\_pr.SKO{]} & {[}Coef.Pik.SKO{]}\tabularnewline
+\hline 
+\end{longtable}%
+\begin{longtable}{|c|c|c|c|c|c|c|}
+\hline 
+ & Режим & ЧР & Взлет & Номинал & 1 крейс. & 2 крейс\tabularnewline
+\hline 
+Парам. & Ne пр & {[}TU.Ne\_pr.modeChR{]} & {[}TU.Ne\_pr.modeVZL{]} & {[}TU.Ne\_pr.modeMP{]} & {[}TU.Ne\_pr.mode1KR{]} & {[}TU.Ne\_pr.mode2KR{]}\tabularnewline
+\hline 
+Gт пр & Факт. & {[}Aprox.Gt\_pr.modeChR{]} & {[}Aprox.Gt\_pr.modeVZL{]} & {[}Aprox.Gt\_pr.modeMP{]} & {[}Aprox.Gt\_pr.mode1KR{]} & {[}Aprox.Gt\_pr.mode2KR{]}\tabularnewline
+\hline 
+\multirow{3}{*}{Ce} & Факт. & {[}Aprox.Ce.modeChR{]} & {[}Aprox.Ce.modeVzl{]} & {[}Aprox.Ce.modeMP{]} & {[}Aprox.Ce.mode1KR{]} & {[}Aprox.Ce.mode2KR{]}\tabularnewline
+\cline{2-7} 
+ & ТУ & {[}TU.Ce.modeChR{]} & - & - & - & -\tabularnewline
+\cline{2-7} 
+ & Откл. & {[}Diff.Ce.modeChR{]} & - & - & - & -\tabularnewline
+\hline 
+\multirow{3}{*}{nтк пр} & Факт. & {[}Aprox.ntk\_pr.modeChR{]} & {[}Aprox.ntk\_pr.modeVzl{]} & {[}Aprox.ntk\_pr.modeMP{]} & {[}Aprox.ntk\_pr.mode1KR{]} & {[}Aprox.ntk\_pr.mode2KR{]}\tabularnewline
+\cline{2-7} 
+ & ТУ & {[}TU.ntk\_pr.modeChR{]} & {[}TU.ntk\_pr.modeVzl{]} & {[}TU.ntk\_pr.modeMP{]} & {[}TU.ntk\_pr.mode1KR{]} & {[}TU.ntk\_pr.mode2KR{]}\tabularnewline
+\cline{2-7} 
+ & Откл. & {[}Diff.ntk\_pr\_modeChR{]} & {[}Diff.ntk\_pr\_modeVzl{]} & {[}Diff.ntk\_pr\_modeMP{]} & {[}Diff.ntk\_pr\_mode1KR{]} & {[}Diff.ntk\_pr\_mode2KR{]}\tabularnewline
+\hline 
+\multirow{3}{*}{tг пр} & Факт. & {[}Aprox.tg\_pr.modeChR{]} & {[}Aprox.tg\_pr.modeVzl{]} & {[}Aprox.tg\_pr.modeMP{]} & {[}Aprox.tg\_pr.mode1KR{]} & {[}Aprox.tg\_pr.mode2KR{]}\tabularnewline
+\cline{2-7} 
+ & ТУ & {[}TU.tg\_pr.modeChR{]} & {[}TU.tg\_pr.modeVzl{]} & {[}TU.tg\_pr.modeMP{]} & {[}TU.tg\_pr.mode1KR{]} & {[}TU.tg\_pr.mode2KR{]}\tabularnewline
+\cline{2-7} 
+ & Откл. & {[}Diff.tg\_pr.modeChR{]} & {[}Diff.tg\_pr.modeVzl{]} & {[}Diff.tg\_pr.modeMP{]} & {[}Diff.tg\_pr.mode1KR{]} & {[}Diff.tg\_pr.mode2KR{]}\tabularnewline
+\hline 
+\multirow{3}{*}{Gв пр} & Факт. & {[}Aprox.Gv\_pr.modeChR{]} & {[}Aprox.Gv\_pr.modeVzl{]} & {[}Aprox.Gv\_pr.modeMP{]} & {[}Aprox.Gv\_pr.mode1KR{]} & {[}Aprox.Gv\_pr.mode2KR{]}\tabularnewline
+\cline{2-7} 
+ & ТУ & {[}TU.Gv\_pr.modeChR{]} & - & - & - & -\tabularnewline
+\cline{2-7} 
+ & Откл. & {[}Diff.Gv\_pr.modeChR{]} & - & - & - & -\tabularnewline
+\hline 
+\multirow{3}{*}{Пк} & Факт. & {[}Aprox.Pik.modeChR{]} & {[}Aprox.Pik.modeVzl{]} & {[}Aprox.Pik.modeMP{]} & {[}Aprox.Pik.mode1KR{]} & {[}Aprox.Pik.mode2KR{]}\tabularnewline
+\cline{2-7} 
+ & ТУ & {[}TU.Pik.modeChR{]} & - & - & - & -\tabularnewline
+\cline{2-7} 
+ & Откл. & {[}Diff.Pik.modeChR{]} & - & - & - & -\tabularnewline
+\hline 
+\end{longtable}%
+\begin{longtable}{|c|c|c|c|}
+\hline 
+Инженер по испытаниям & Начальник БТК & Начальник УИД СИК & Представитель заказчика\tabularnewline
+\hline 
+ &  &  & \tabularnewline
+ &  &  & {[}Test1{]}\tabularnewline
+\hline 
+\endfoot
+\end{longtable}{[}Test2{]}
+\end{document}

@@ -1,0 +1,47 @@
+
+[indentation]
+indent_width=8
+indent_type=1
+indent_hard_tab_width=8
+detect_indent=false
+indent_mode=2
+
+[project]
+name=tex_parser
+base_path=/home/kolan/dev/c/tex_parser/
+description=
+
+[long line marker]
+long_line_behaviour=1
+long_line_column=72
+
+[files]
+current_page=3
+FILE_NAME_0=259;C;0;16;1;1;1;/home/kolan/dev/c/tex_parser/tex_parser_test.c;0
+FILE_NAME_1=3895;C;0;16;1;1;1;/home/kolan/dev/c/tex_parser/tex_parser.c;0
+FILE_NAME_2=3453;C;0;16;1;1;1;/home/kolan/dev/c/tex_parser/tex_parser.h;0
+FILE_NAME_3=579;C;0;16;1;1;1;/home/kolan/dev/c/tex_parser/tex_parser_tags.h;0
+
+[build-menu]
+NF_00_LB=_Сделать
+NF_00_CM=make
+NF_00_WD=%p
+NF_01_LB=Сделать заданную _цель
+NF_01_CM=make 
+NF_01_WD=%p
+NF_02_LB=Сделать _объект
+NF_02_CM=make %e.o
+NF_02_WD=%p
+CFT_00_LB=_Скомпилировать
+CFT_00_CM=gcc -Wall -c "%f"
+CFT_00_WD=%p
+CFT_01_LB=_Сборка
+CFT_01_CM=gcc -Wall -o "%e" "%f" -lhash
+CFT_01_WD=%p
+CFT_02_LB=
+CFT_02_CM=
+CFT_02_WD=%p
+filetypes=C;
+EX_00_LB=_Выполнить
+EX_00_CM=./tex_parser_test ex1.tex
+EX_00_WD=%p

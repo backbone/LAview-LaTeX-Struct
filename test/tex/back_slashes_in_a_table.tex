@@ -1,0 +1,50 @@
+\documentclass[russian]{report}
+\usepackage{array}
+
+\begin{document}
+
+% use of \tabularnewline
+\begin{tabular}{|>{\centering}p{0.08\paperwidth}|>{\centering}b{0.08\paperwidth}|>{\centering}m{0.08\paperwidth}|}
+\hline
+A1 \\ aa A1 & B1 \\ aa B1 & C1 \\ aa C1 \tabularnewline
+\hline
+A1 & B1 & C1 \tabularnewline
+\hline
+A2 & B2 & C2 \tabularnewline
+\hline
+\end{tabular}
+
+% old style row endings
+\begin{tabular}{|c|c|c|}
+A \\ & B \\ & C \\
+A & B & C \\
+A & B & C
+\end{tabular}
+\begin{tabular}{|c|c|c|}
+A & B & C \\
+A & B & C \\
+\end{tabular}
+
+% use of \tabularnewline
+\begin{longtable}{|>{\centering}p{0.08\paperwidth}|>{\centering}b{0.08\paperwidth}|>{\centering}m{0.08\paperwidth}|}
+\hline
+A1 \\ aa A1 & B1 \\ aa B1 & C1 \\ aa C1 \tabularnewline
+\hline
+A1 & B1 & C1 \tabularnewline
+\hline
+A2 & B2 & C2 \tabularnewline
+\hline
+\end{longtable}
+
+% old style row endings
+\begin{longtable}{|c|c|c|}
+A \\ & B \\ & C \\
+A & B & C \\
+A & B & C
+\end{longtable}
+\begin{longtable}{|c|c|c|}
+A & B & C \\
+A & B & C \\
+\end{longtable}
+
+\end{document}
