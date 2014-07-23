@@ -346,7 +346,7 @@ namespace LAview {
 				TOPRULE, MIDRULE, CMIDRULE, BOTTOMRULE, NOALIGN, ADDLINESPACE
 			}
 
-			void end_subtable (Table.ATable table,
+			void end_subtable (ATable table,
 			                   TableTagType subtable_type, uint tag_left_abspos) {
 				if (in_caption) {
 					subtable.caption = contents[row_abs_pos:tag_left_abspos].compress ();
@@ -385,7 +385,7 @@ namespace LAview {
 				subtable = new Subtable ();
 			}
 
-			protected TokenType scan_tex_symbol (Table.ATable table) throws ParseError {
+			protected TokenType scan_tex_symbol (ATable table) throws ParseError {
 				var tag = 0U;
 				var matched_tag_length = fifo_is_tag (local_tokens_to_class_start, out tag);
 				var message = "";
