@@ -14,24 +14,24 @@ FILE (GLOB_RECURSE ParseTestSources RELATIVE ${CMAKE_SOURCE_DIR}/test ParseTest.
 VALA_PRECOMPILE (ParseTest_C ${ParseTestSources}
                  PACKAGES gee-0.8 posix
                  OPTIONS --thread ${VALA_DEBUG}
-                 CUSTOM_VAPIS ${PROJECT_BINARY_DIR}/src/laview-latex-struct-${MAJOR}.vapi
+                 CUSTOM_VAPIS ${PROJECT_BINARY_DIR}/src/${PROJ_LCASE}-${MAJOR}_internal.vapi
                  GENERATE_VAPI
                  GENERATE_HEADER
                 )
 ADD_EXECUTABLE (ParseTest ${ParseTest_C})
-TARGET_LINK_LIBRARIES (ParseTest laview-latex-struct ${GEE_LIBRARIES})
+TARGET_LINK_LIBRARIES (ParseTest ${PROJ_LCASE} ${GEE_LIBRARIES})
 
 # add ltable_test executable
 FILE (GLOB_RECURSE LTableTestSources RELATIVE ${CMAKE_SOURCE_DIR}/test LTableTest.vala)
 VALA_PRECOMPILE (LTableTest_C ${LTableTestSources}
                  PACKAGES gee-0.8 posix
                  OPTIONS --thread ${VALA_DEBUG}
-                 CUSTOM_VAPIS ${PROJECT_BINARY_DIR}/src/laview-latex-struct-${MAJOR}.vapi
+                 CUSTOM_VAPIS ${PROJECT_BINARY_DIR}/src/${PROJ_LCASE}-${MAJOR}_internal.vapi
                  GENERATE_VAPI
                  GENERATE_HEADER
                 )
 ADD_EXECUTABLE (LTableTest ${LTableTest_C})
-TARGET_LINK_LIBRARIES (LTableTest laview-latex-struct ${GEE_LIBRARIES})
+TARGET_LINK_LIBRARIES (LTableTest ${PROJ_LCASE} ${GEE_LIBRARIES})
 
 # parsing test macro
 MACRO (do_parse_test testname table_path etalon_path regexp)

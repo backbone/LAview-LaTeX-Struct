@@ -12,9 +12,10 @@ INCLUDE (MacroOptionalAddSubdirectory)
 INCLUDE (CPackDetectArch)
 
 SET (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -w") # supress Gcc warnings
+SET (PROJ_LCASE "laview-latex-struct")
 
 # configure a header file for Gettext
-SET (GETTEXT_PACKAGE "laview-latex-struct")
+SET (GETTEXT_PACKAGE "${PROJ_LCASE}")
 ADD_DEFINITIONS (-DGETTEXT_PACKAGE="${GETTEXT_PACKAGE}")
 IF (WIN32)
   SET (LOCALEDIR "")
