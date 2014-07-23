@@ -44,7 +44,7 @@ public class Main : Object {
 		foreach (var subdoc in doc) {
 			stdout.printf ("%s\n", subdoc.get_type ().name ());
 
-			if (subdoc.get_type ().name () == "LAviewTableLongtable") {
+			if (subdoc is Table.Longtable) {
 				var ltable = subdoc as Table.Longtable;
 
 				if (args[3] == "rm0row") {
@@ -80,7 +80,7 @@ public class Main : Object {
 					stdout.printf ("Incorrect operation '%s' specified.\n", args[3]);
 					return -1;
 				}
-			} else if (subdoc.get_type ().name () == "LAviewTableTabular") {
+			} else if (subdoc is Table.Tabular) {
 				if (args[3] == "append_row0") {
 					var tabular = subdoc as Table.Tabular;
 					var table = tabular.table;
