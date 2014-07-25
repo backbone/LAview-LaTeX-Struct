@@ -33,6 +33,18 @@ VALA_PRECOMPILE (LTableTest_C ${LTableTestSources}
 ADD_EXECUTABLE (LTableTest ${LTableTest_C})
 TARGET_LINK_LIBRARIES (LTableTest ${PROJ_LCASE} ${GEE_LIBRARIES})
 
+# add split_test executable
+FILE (GLOB_RECURSE LTableTestSources RELATIVE ${CMAKE_SOURCE_DIR}/test SplitTest.vala)
+VALA_PRECOMPILE (SplitTest_C ${LTableTestSources}
+                 PACKAGES gee-0.8 posix
+                 OPTIONS --thread ${VALA_DEBUG}
+                 CUSTOM_VAPIS ${PROJECT_BINARY_DIR}/src/${PROJ_LCASE}-${MAJOR}.vapi
+                 GENERATE_VAPI
+                 GENERATE_HEADER
+                )
+ADD_EXECUTABLE (SplitTest ${SplitTest_C})
+TARGET_LINK_LIBRARIES (SplitTest ${PROJ_LCASE} ${GEE_LIBRARIES})
+
 # parsing test macro
 MACRO (do_parse_test testname table_path etalon_path regexp)
   IF ("${etalon_path}" STREQUAL "")
@@ -385,6 +397,20 @@ ltable_test (clone_1000_0 ${PROJECT_SOURCE_DIR}/test/tex/formular.tex ${PROJECT_
 # ltable_test append_row0
 ltable_test (append_row0 ${PROJECT_SOURCE_DIR}/test/tex/table_rows.tex ${PROJECT_SOURCE_DIR}/test/tex/table_rows.etalon.tex append_row0
 "Etalon and generated text are EQUAL .-.")
+
+MACRO (do_split_test testname limits table etalon regexp)
+  ADD_TEST (split_test-${testname} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/SplitTest
+            --limits ${limits} --table ${table} --etalon ${etalon})
+SET_TESTS_PROPERTIES (split_test-${testname}
+  PROPERTIES PASS_REGULAR_EXPRESSION ${regexp}
+             FAIL_REGULAR_EXPRESSION "CRITICAL;WARNING")
+ENDMACRO (do_split_test)
+
+# test TeXReport_splitLongtable () function
+do_split_test (split_test ${PROJECT_SOURCE_DIR}/test/tex/limits1.in
+                          ${PROJECT_SOURCE_DIR}/test/tex/limits_table1.tex
+                          ${PROJECT_SOURCE_DIR}/test/tex/limits_table1.etalon.tex
+"Etalon and generated text are EQUAL ...\n")
 
 # enable testing
 ENABLE_TESTING ()
