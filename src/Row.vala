@@ -18,28 +18,28 @@ namespace LAview {
 				DEFAULT = 0,
 
 				/**
-				 * Formal style for the first //Row// in the {@link Subtable}.
+				 * Formal style for the first ``Row`` in the {@link Subtable}.
 				 */
 				FORMAL_FIRST,
 
 				/**
-				 * Formal style for the middle //Row// in the {@link Subtable}.
+				 * Formal style for the middle ``Row`` in the {@link Subtable}.
 				 */
 				FORMAL_REST,
 
 				/**
-				 * Formal style for the last //Row// in the {@link Subtable}.
+				 * Formal style for the last ``Row`` in the {@link Subtable}.
 				 */
 				FORMAL_LAST,
 
 				/**
-				 * Formal style for a single //Row// in the {@link Subtable}.
+				 * Formal style for a single ``Row`` in the {@link Subtable}.
 				 */
 				FORMAL_SINGLE
 			}
 
 			/**
-			 * Style of any operation on {@link ATable}/{@link Subtable} or //Row//
+			 * Style of any operation on {@link ATable}/{@link Subtable} or ``Row``
 			 * for lines preserving/creation.
 			 */
 			public enum OpLineStyle {
@@ -86,12 +86,12 @@ namespace LAview {
 			}
 
 			/**
-			 * Any text before the //Row//.
+			 * Any text before the ``Row``.
 			 */
 			public string before = "";
 
 			/**
-			 * Style of any operation on {@link ATable}/{@link Subtable} or //Row//
+			 * Style of any operation on {@link ATable}/{@link Subtable} or ``Row``
 			 * for lines preserving/creation.
 			 */
 			public Style style;
@@ -112,35 +112,35 @@ namespace LAview {
 			public AddSpaces between = new AddSpaces ();
 
 			/**
-			 * Type of horizontal lines for the //Row//.
+			 * Type of horizontal lines for the ``Row``.
 			 */
 			public enum LinesType {
 
 				/**
-				 * //Row// has no horizontal lines.
+				 * ``Row`` has no horizontal lines.
 				 */
 				NONE = 0,
 
 				/**
-				 * //Row// has continuous horizontal line on the top.
+				 * ``Row`` has continuous horizontal line on the top.
 				 */
 				HLINE,
 
 				/**
-				 * //Row// has noncontinuous horizontal line on the top.
+				 * ``Row`` has noncontinuous horizontal line on the top.
 				 */
 				CLINES
 			}
 
 			/**
-			 * Constructs a new empty //Row//.
+			 * Constructs a new empty ``Row``.
 			 */
 			public Row () {}
 
 			protected override ADocList create_default_instance () { return new Row (); }
 
 			/**
-			 * Gets a copy of the //Row//.
+			 * Gets a copy of the ``Row``.
 			 */
 			public override IDoc copy () {
 				var clone = base.copy () as Row;
@@ -315,7 +315,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Removes a {@link Cell} from the //Row//.
+			 * Removes a {@link Cell} from the ``Row``.
 			 *
 			 * @param cell {@link Cell} to remove.
 			 * @param line_style {@link Row.OpLineStyle} of the operation.
@@ -328,7 +328,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Removes a {@link Cell} from the //Row// at specified position.
+			 * Removes a {@link Cell} from the ``Row`` at specified position.
 			 *
 			 * @param index position of the {@link Cell} to remove.
 			 * @param line_style {@link Row.OpLineStyle} of the operation.
@@ -362,7 +362,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Inserts a {@link Cell} to the //Row// to specified position.
+			 * Inserts a {@link Cell} to the ``Row`` to specified position.
 			 *
 			 * @param index position to insert the {@link Cell}.
 			 * @param cell {@link Cell} to insert.
@@ -374,7 +374,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Adds a {@link Cell} to the //Row//.
+			 * Adds a {@link Cell} to the ``Row``.
 			 *
 			 * @param cell {@link Cell} to add.
 			 * @param line_style {@link Row.OpLineStyle} of the operation.
@@ -385,7 +385,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Generates LaTeX string for the //Row//.
+			 * Generates LaTeX string for the ``Row``.
 			 */
 			public override string generate () {
 				var s = new StringBuilder ();

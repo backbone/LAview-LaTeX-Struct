@@ -16,7 +16,7 @@ namespace LAview {
 			public string height = "";
 
 			/**
-			 * Constructs a new //AddSpace// based on value.
+			 * Constructs a new ``AddSpace`` based on value.
 			 *
 			 * @param height [0-9]+{bp,cc,cm,dd,em,ex,in,mm,pc,pt,sp} <<BR>>
 			 * or [0-9]+.[0-9][0-9]{\textwidth,columnwidth,paperwidth,linewidth,textheight,paperheight}
@@ -28,14 +28,14 @@ namespace LAview {
 			private AddSpace () {}
 
 			/**
-			 * Gets a copy of the //AddSpace//.
+			 * Gets a copy of the ``AddSpace``.
 			 */
 			public override IDoc copy () {
 				return new AddSpace.with_params (height);
 			}
 
 			/**
-			 * Generates LaTeX string for the //AddSpace//.
+			 * Generates LaTeX string for the ``AddSpace``.
 			 */
 			public override string generate () {
 				return height;

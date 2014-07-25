@@ -97,7 +97,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Constructs a new //Cell// based on it's properties.
+			 * Constructs a new ``Cell`` based on it's properties.
 			 */
 			public Cell.with_params (Multitype multitype, uint ncells, uint nllines, string align,
 			                         uint nrlines, uint noverlines, uint nunderlines,
@@ -117,7 +117,7 @@ namespace LAview {
 			private Cell () {}
 
 			/**
-			 * Gets a copy of the //Cell//.
+			 * Gets a copy of the ``Cell``.
 			 */
 			public override IDoc copy () {
 				return new Cell.with_params (multitype, ncells, nllines, align, nrlines,
@@ -125,7 +125,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Generates LaTeX string for the //Cell//.
+			 * Generates LaTeX string for the ``Cell``.
 			 */
 			public override string generate () {
 				var result = new StringBuilder (before),

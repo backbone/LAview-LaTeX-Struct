@@ -55,7 +55,7 @@ namespace LAview {
 			protected ATable () {}
 
 			/**
-			 * Gets a copy of the //Table//.
+			 * Gets a copy of the ``ATable``.
 			 */
 			public override IDoc copy () {
 				var clone = Object.new (this.get_type ()) as ATable;
@@ -73,7 +73,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Generates LaTeX string for the //Table//.
+			 * Generates LaTeX string for the ``ATable``.
 			 */
 			public override string generate () {
 				assert (false);

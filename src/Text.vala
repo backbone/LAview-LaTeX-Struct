@@ -11,7 +11,7 @@ namespace LAview {
 		public string text = "";
 
 		/**
-		 * Constructs a new //Text//.
+		 * Constructs a new ``Text``.
 		 *
 		 * @param text UTF-8 string.
 		 */
@@ -20,14 +20,14 @@ namespace LAview {
 		}
 
 		/**
-		 * Gets a copy of the //Text//.
+		 * Gets a copy of the ``Text``.
 		 */
 		public override IDoc copy () {
 			return new Text (text);
 		}
 
 		/**
-		 * Generates LaTeX string for the //Text//.
+		 * Generates LaTeX string for the ``Text``.
 		 */
 		public override string generate () {
 			return text;

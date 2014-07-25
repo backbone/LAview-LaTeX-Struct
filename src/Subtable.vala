@@ -13,12 +13,12 @@ namespace LAview {
 			public string caption = "";
 
 			/**
-			 * Any text before the //Subtable//.
+			 * Any text before the ``Subtable``.
 			 */
 			public string before = "";
 
 			/**
-			 * Any text after the //Subtable//.
+			 * Any text after the ``Subtable``.
 			 */
 			public string after = "";
 
@@ -30,12 +30,12 @@ namespace LAview {
 			protected override ADocList create_default_instance () { return new Subtable (); }
 
 			/**
-			 * Constructs a new empty //Subtable//.
+			 * Constructs a new empty ``Subtable``.
 			 */
 			public Subtable () {}
 
 			/**
-			 * Gets a copy of the //Subtable//.
+			 * Gets a copy of the ``Subtable``.
 			 */
 			public override IDoc copy () {
 				var clone = base.copy () as Subtable;
@@ -210,7 +210,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Removes {@link Row} from from //Subtable//.
+			 * Removes {@link Row} from from ``Subtable``.
 			 *
 			 * @param row {@link Row} to remove.
 			 * @param line_style {@link Row.OpLineStyle} of the operation.
@@ -223,7 +223,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Removes a {@link Row} from the //Subtable// at specified position.
+			 * Removes a {@link Row} from the ``Subtable`` at specified position.
 			 *
 			 * @param index position of the {@link Row} to remove.
 			 * @param line_style {@link Row.OpLineStyle} of the operation.
@@ -245,7 +245,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Inserts a {@link Row} to the //Subtable// to specified position.
+			 * Inserts a {@link Row} to the ``Subtable`` to specified position.
 			 *
 			 * @param index position to insert the {@link Row}.
 			 * @param row {@link Row} to insert.
@@ -257,7 +257,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Adds a {@link Row} to the //Subtable//.
+			 * Adds a {@link Row} to the ``Subtable``.
 			 *
 			 * @param row {@link Row} to add.
 			 * @param line_style {@link Row.OpLineStyle} of the operation.
@@ -309,7 +309,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Generates LaTeX string for the //Subtable//.
+			 * Generates LaTeX string for the ``Subtable``.
 			 */
 			public override string generate () {
 				var s = new StringBuilder ();
