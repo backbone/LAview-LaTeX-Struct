@@ -9,12 +9,12 @@ INCLUDE_DIRECTORIES (${GEE_INCLUDE_DIRS})
 INCLUDE_DIRECTORIES ("${CMAKE_BINARY_DIR}")
 INCLUDE_DIRECTORIES ("${CMAKE_BINARY_DIR}/src")
 
-# add the executable
+# add parse_test executable
 FILE (GLOB_RECURSE ParseTestSources RELATIVE ${CMAKE_SOURCE_DIR}/test ParseTest.vala)
 VALA_PRECOMPILE (ParseTest_C ${ParseTestSources}
                  PACKAGES gee-0.8 posix
                  OPTIONS --thread ${VALA_DEBUG}
-                 CUSTOM_VAPIS ${PROJECT_BINARY_DIR}/src/${PROJ_LCASE}-${MAJOR}_internal.vapi
+                 CUSTOM_VAPIS ${PROJECT_BINARY_DIR}/src/${PROJ_LCASE}-${MAJOR}.vapi
                  GENERATE_VAPI
                  GENERATE_HEADER
                 )
@@ -26,7 +26,7 @@ FILE (GLOB_RECURSE LTableTestSources RELATIVE ${CMAKE_SOURCE_DIR}/test LTableTes
 VALA_PRECOMPILE (LTableTest_C ${LTableTestSources}
                  PACKAGES gee-0.8 posix
                  OPTIONS --thread ${VALA_DEBUG}
-                 CUSTOM_VAPIS ${PROJECT_BINARY_DIR}/src/${PROJ_LCASE}-${MAJOR}_internal.vapi
+                 CUSTOM_VAPIS ${PROJECT_BINARY_DIR}/src/${PROJ_LCASE}-${MAJOR}.vapi
                  GENERATE_VAPI
                  GENERATE_HEADER
                 )
