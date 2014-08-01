@@ -265,6 +265,9 @@ namespace LAview {
 						}
 						break;
 					case Row.LinesType.CLINES:
+						/* #85 Assert in LINE_CLINES case */
+						if (row.size == 0 && subtable.size == 0)
+							break;
 						var tmp_row = row.size != 0 ? row : subtable.get (subtable.size - 1) as Row;
 						unowned List<int> clines_p = clines.first ();
 						foreach (var cell in tmp_row as Gee.ArrayList<Cell>) {
