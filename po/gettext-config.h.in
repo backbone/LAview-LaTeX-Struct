@@ -1,0 +1,11 @@
+#ifndef @GettextUniqueHeader@_H
+#define @GettextUniqueHeader@_H
+
+#define GETTEXT_PACKAGE "@GettextPackageNameAbi@"
+#include <glib/gi18n-lib.h>
+
+#ifdef WIN32
+#define _(String) dgettext (GETTEXT_PACKAGE, String)
+#endif
+
+#endif // @GettextUniqueHeader@_H
