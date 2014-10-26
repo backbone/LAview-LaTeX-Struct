@@ -8,7 +8,7 @@ namespace LAview {
 		protected override ADocList create_default_instance () { return new Glob (); }
 
 		/**
-		 * Constructs a new empty //Glob//.
+		 * Constructs a new empty ``Glob``.
 		 */
 		public Glob () {}
 	}

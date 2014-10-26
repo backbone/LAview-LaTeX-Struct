@@ -1,0 +1,7 @@
+SET (LibName ${PROJECT_LOWERCASE_NAME})
+FILE (GLOB_RECURSE LibSources RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.vala)
+SET (LibPackages gee-0.8 posix)
+SET (LibPkgModules gee-0.8)
+SET (LibExtraSources ${PROJECT_SOURCE_DIR}/src/library_constructor.c)
+SET (LibInstall ON)
+INCLUDE (ValaLibCommonRules)

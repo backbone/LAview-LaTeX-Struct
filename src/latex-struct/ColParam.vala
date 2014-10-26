@@ -25,7 +25,7 @@ namespace LAview {
 			public uint nrlines;
 
 			/**
-			 * Constructs a new //ColParam// by it's properties.
+			 * Constructs a new ``ColParam`` by it's properties.
 			 */
 			public ColParam.with_params (uint nllines = 1,
 			                             string align = "c",
@@ -38,14 +38,14 @@ namespace LAview {
 			private ColParam () {}
 
 			/**
-			 * Gets a copy of the //ColParam//.
+			 * Gets a copy of the ``ColParam``.
 			 */
 			public override IDoc copy () {
 				return new ColParam.with_params (nllines, align, nrlines);
 			}
 
 			/**
-			 * Generates LaTeX string for the //ColParam//.
+			 * Generates LaTeX string for the ``ColParam``.
 			 */
 			public override string generate () {
 				var result = new StringBuilder ();

@@ -10,7 +10,7 @@ namespace LAview {
 			protected override ADocList create_default_instance () { return new ColParams (); }
 
 			/**
-			 * Constructs a new empty //ColParams//.
+			 * Constructs a new empty ``ColParams``.
 			 */
 			public ColParams () {}
 		}

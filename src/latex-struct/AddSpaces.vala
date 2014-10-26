@@ -29,14 +29,14 @@ namespace LAview {
 			public Style style = Style.DEFAULT;
 
 			/**
-			 * Constructs a new empty //AddSpaces//.
+			 * Constructs a new empty ``AddSpaces``.
 			 */
 			public AddSpaces () {}
 
 			protected override ADocList create_default_instance () { return new AddSpaces (); }
 
 			/**
-			 * Gets a copy of the //AddSpaces//.
+			 * Gets a copy of the ``AddSpaces``.
 			 */
 			public override IDoc copy () {
 				var clone = base.copy () as AddSpaces;
@@ -45,7 +45,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Generates LaTeX string for the //AddSpaces//.
+			 * Generates LaTeX string for the ``AddSpaces``.
 			 */
 			public override string generate () {
 				var result = new StringBuilder ();

@@ -50,7 +50,7 @@ namespace LAview {
 		public string height_unit = "";
 
 		/**
-		 * Constructs a new //Graphics// by it's properties.
+		 * Constructs a new ``Graphics`` by it's properties.
 		 *
 		 * @param path path to the image on the disk.
 		 */
@@ -61,7 +61,7 @@ namespace LAview {
 		private Graphics () {}
 
 		/**
-		 * Gets a copy of the //Graphics//.
+		 * Gets a copy of the ``Graphics``.
 		 */
 		public override IDoc copy () {
 			var clone = new Graphics.with_params (path);
@@ -74,7 +74,7 @@ namespace LAview {
 		}
 
 		/**
-		 * Generates LaTeX string for the //Graphics//.
+		 * Generates LaTeX string for the ``Graphics``.
 		 */
 		public override string generate () {
 			var str = new StringBuilder ("\\includegraphics[");

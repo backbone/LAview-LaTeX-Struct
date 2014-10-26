@@ -10,19 +10,19 @@ namespace LAview {
 		public class Longtable : ATable {
 
 			/**
-			 * Constructs a new //Longtable// with default parameters.
+			 * Constructs a new ``Longtable`` with default parameters.
 			 */
 			public Longtable () {}
 
 			/**
-			 * Gets a copy of the //Longtable//.
+			 * Gets a copy of the ``Longtable``.
 			 */
 			public override IDoc copy () {
 				return base.copy ();
 			}
 
 			/**
-			 * Generates LaTeX string for the //Longtable//.
+			 * Generates LaTeX string for the ``Longtable``.
 			 */
 			public override string generate () {
 				var s = new StringBuilder ();

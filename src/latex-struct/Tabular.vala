@@ -10,7 +10,7 @@ namespace LAview {
 		public class Tabular : ATable {
 
 			/**
-			 * Constructs a new //Tabular// with default parameters.
+			 * Constructs a new ``Tabular`` with default parameters.
 			 */
 			public Tabular () {}
 
@@ -24,7 +24,7 @@ namespace LAview {
 			public string width = "";
 
 			/**
-			 * Gets a copy of the //Tabular//.
+			 * Gets a copy of the ``Tabular``.
 			 */
 			public override IDoc copy () {
 				var clone = base.copy () as Tabular;
@@ -33,7 +33,7 @@ namespace LAview {
 			}
 
 			/**
-			 * Generates LaTeX string for the //Tabular//.
+			 * Generates LaTeX string for the ``Tabular``.
 			 */
 			public override string generate () {
 				var s  = new StringBuilder ();
