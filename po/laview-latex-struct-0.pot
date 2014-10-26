@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: laview-latex-struct-0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-31 18:16+0400\n"
+"POT-Creation-Date: 2014-10-26 17:59+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,57 +17,57 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/GlobParser.vala:58
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/GlobParser.vala:58
 #, c-format
 msgid "Begin tag sequence '%s' without end tag pair."
 msgstr ""
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/GlobParser.vala:127
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:582
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/GlobParser.vala:127
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:585
 #, c-format
 msgid ": Unexpected end tag sequence '%s' without begin tag pair."
 msgstr ""
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/GlobParser.vala:148
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:148
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:179
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:188
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:205
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/GlobParser.vala:148
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:148
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:179
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:188
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:205
 msgid "Error parsing subdoc."
 msgstr ""
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/LongtableParser.vala:44
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/LongtableParser.vala:44
 #, c-format
 msgid "Incorrect longtable parameters doesn't match '%s' regexp."
 msgstr ""
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/Table.vala:298
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/Table.vala:298
 msgid "2nd param (ATable) isn't a child of the 1st (Glob)."
 msgstr ""
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/Table.vala:312
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/Table.vala:312
 msgid "3rd param (limits) is incorrect. Read the manual."
 msgstr ""
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/Table.vala:329
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/Table.vala:329
 msgid "Cann't split the table. Read the manual."
 msgstr ""
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:413
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:416
 #, c-format
 msgid "Unexpected end external tag sequence '%s' without begin tag pair."
 msgstr ""
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:449
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:452
 #, c-format
 msgid "Begin tag sequence '%s':%d:%d without end tag pair."
 msgstr ""
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:612
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:615
 msgid "\\cline parameters doesn't match {number-number} regexp."
 msgstr ""
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TabularParser.vala:43
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TabularParser.vala:43
 #, c-format
 msgid "Incorrect tabular parameters doesn't match '%s' regexp."
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: laview-latex-struct-0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-31 18:16+0400\n"
+"POT-Creation-Date: 2014-10-26 15:56+0300\n"
 "PO-Revision-Date: 2014-05-28 10:50+0400\n"
 "Last-Translator:  <backbone@backbone.ws>\n"
 "Language-Team: Russian\n"
@@ -18,62 +18,62 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/GlobParser.vala:58
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/GlobParser.vala:58
 #, c-format
 msgid "Begin tag sequence '%s' without end tag pair."
 msgstr "Стартовая последовательность тегов '%s' без соответствующей стоп-пары."
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/GlobParser.vala:127
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:582
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/GlobParser.vala:127
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:585
 #, c-format
 msgid ": Unexpected end tag sequence '%s' without begin tag pair."
 msgstr ""
 ": Неожиданная завершающая последовательность тегов '%s' без соответствующей "
 "старт-пары."
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/GlobParser.vala:148
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:148
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:179
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:188
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:205
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/GlobParser.vala:148
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:148
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:179
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:188
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:205
 msgid "Error parsing subdoc."
 msgstr "Ошибка разбора поддокумента."
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/LongtableParser.vala:44
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/LongtableParser.vala:44
 #, c-format
 msgid "Incorrect longtable parameters doesn't match '%s' regexp."
 msgstr "Неверные параметры longtable не удовлетворяют рег. выражению '%s'."
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/Table.vala:298
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/Table.vala:298
 msgid "2nd param (ATable) isn't a child of the 1st (Glob)."
 msgstr "2-ой параметр (ATable) не является дочерним узлом 1-ого (Glob)."
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/Table.vala:312
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/Table.vala:312
 msgid "3rd param (limits) is incorrect. Read the manual."
 msgstr "3-ий параметр (limits) не верный. Смотрите документацию."
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/Table.vala:329
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/Table.vala:329
 msgid "Cann't split the table. Read the manual."
 msgstr "Невозможно разбить таблицу. Смотрите документацию."
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:413
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:416
 #, c-format
 msgid "Unexpected end external tag sequence '%s' without begin tag pair."
 msgstr ""
 ": Неожиданная завершающая последовательность внешних тегов '%s' без "
 "соответствующей старт-пары."
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:449
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:452
 #, c-format
 msgid "Begin tag sequence '%s':%d:%d without end tag pair."
 msgstr ""
 "Стартовая последовательность тегов '%s':%d:%d без соответствующей стоп-пары."
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TableParser.vala:612
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TableParser.vala:615
 msgid "\\cline parameters doesn't match {number-number} regexp."
 msgstr "Параметры \\cline не соответствует рег. выражению {число-число}."
 
-#: /home/kolan/projects/LAview/LaTeX-Struct/src/TabularParser.vala:43
+#: /home/kolan/projects/LAview/latex-struct/src/latex-struct/TabularParser.vala:43
 #, c-format
 msgid "Incorrect tabular parameters doesn't match '%s' regexp."
 msgstr "Неверные параметры tabular не удовлетворяют рег. выражению '%s'."

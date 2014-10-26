@@ -1,0 +1,11 @@
+prefix=@PkgConfigPrefix@
+exec_prefix=@PkgConfigExecPrefix@
+libdir=@PkgConfigLibDir@
+includedir=@PkgConfigIncludeDir@
+
+Name: @PkgConfigName@
+Description: @PkgConfigDescription@
+Version: @PkgConfigVersion@
+Libs: @PkgConfigLibs@
+Libs.private: @PkgConfigLibsPrivate@
+Cflags: @PkgConfigCflags@

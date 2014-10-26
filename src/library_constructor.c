@@ -1,16 +1,16 @@
-#if defined(_WIN32)
+#if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
 #endif
 
 #include "gettext-config.h"
 
-#if defined(_WIN32)
+#if defined(_WIN32) || defined(_WIN64)
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
-#elif defined (__GNUC__)
-void __attribute__ ((constructor)) laview_latex_struct_load (void)
+#elif defined(linux) || defined(UNIX) || defined(__unix__)
+void __attribute__ ((constructor)) load_library (void)
 #endif
 {
-#if defined(_WIN32)
+#if defined(_WIN32) || defined(_WIN64)
   gchar  dllPath[FILENAME_MAX],
         *dllDir,
         *localePath;
@@ -25,10 +25,11 @@ void __attribute__ ((constructor)) laview_latex_struct_load (void)
 
 #if (!GLIB_CHECK_VERSION (2, 36, 0))
   g_type_init ();
+#endif
 
-  (void) dwReason;
-  (void) lpReserved;
+#if defined(_WIN32) || defined(_WIN64)
+  (void) dwReason;    // avoid
+  (void) lpReserved;  // warngings
   return TRUE;
 #endif
 }
-
