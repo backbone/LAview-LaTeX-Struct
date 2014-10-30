@@ -12,17 +12,17 @@ namespace LAview {
 			 *
 			 * Possible values: "c", "r", "l", ">{\centering}p{0.07\paperwidth}", etc.
 			 */
-			public string align = "c";
+			public string align { get; set; default = "c"; }
 
 			/**
 			 * Number of left lines.
 			 */
-			public uint nllines = 1;
+			public uint nllines { get; set; default = 1; }
 
 			/**
 			 * Number of right lines.
 			 */
-			public uint nrlines;
+			public uint nrlines { get; set; }
 
 			/**
 			 * Constructs a new ``ColParam`` by it's properties.

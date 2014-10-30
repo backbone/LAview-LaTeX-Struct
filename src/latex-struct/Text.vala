@@ -8,7 +8,7 @@ namespace LAview {
 		/**
 		 * Plain text in UTF-8 string.
 		 */
-		public string text = "";
+		public string text { get; set; default = ""; }
 
 		/**
 		 * Constructs a new ``Text``.

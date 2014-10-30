@@ -6,9 +6,9 @@ namespace LAview {
 
 		class Link {
 
-			public string[] begin;
-			public string[] end;
-			public unowned ParserDelegate create;
+			public string[] begin { get; set; }
+			public string[] end { get; set; }
+			public unowned ParserDelegate create { get; set; }
 
 			public Link (string[] begin, string[] end, ParserDelegate? create = null) {
 				this.begin = begin; this.end = end; this.create = create;
@@ -17,7 +17,7 @@ namespace LAview {
 
 		class ParserFactory {
 
-			public Array<Link> group = new Array<Link> ();
+			public Array<Link> group { get; set; default = new Array<Link> (); }
 
 			public virtual TextParser make_text_parser (Array<Link> links) {
 				return new TextParser (links);

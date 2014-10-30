@@ -21,7 +21,7 @@ namespace LAview {
 			 * \textwidth,\columnwidth,\pagewidth,\linewidth,
 			 * \textheight,\columnheight,\pageheight,\lineheight}.
 			 */
-			public string width = "";
+			public string width { get; set; default = ""; }
 
 			/**
 			 * Gets a copy of the ``Tabular``.

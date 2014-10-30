@@ -88,28 +88,28 @@ namespace LAview {
 			/**
 			 * Any text before the ``Row``.
 			 */
-			public string before = "";
+			public string before { get; set; default = ""; }
 
 			/**
 			 * Style of any operation on {@link ATable}/{@link Subtable} or ``Row``
 			 * for lines preserving/creation.
 			 */
-			public Style style;
+			public Style style { get; set; }
 
 			/**
 			 * Top vertical spaces.
 			 */
-			public AddSpaces top = new AddSpaces ();
+			public AddSpaces top { get; set; default = new AddSpaces (); }
 
 			/**
 			 * Bottom vertical spaces.
 			 */
-			public AddSpace bottom = new AddSpace.with_params ("");
+			public AddSpace bottom { get; set; default = new AddSpace.with_params (""); }
 
 			/**
 			 * Vertical spaces inside the {@link Subtable}
 			 */
-			public AddSpaces between = new AddSpaces ();
+			public AddSpaces between { get; set; default = new AddSpaces (); }
 
 			/**
 			 * Type of horizontal lines for the ``Row``.
