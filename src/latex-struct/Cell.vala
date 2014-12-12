@@ -10,49 +10,49 @@ namespace LAview {
 			/**
 			 * Number of occupied cells.
 			 */
-			public uint ncells = 1;
+			public uint ncells { get; set; default = 1; }
 
 			/**
 			 * Cell's alignment.
 			 *
 			 * Possible values: "c", "r", "l", ">{\centering}p{0.07\paperwidth}", etc.
 			 */
-			public string align = "";
+			public string align { get; set; default = ""; }
 
 			/**
 			 * Number of left lines.
 			 */
-			public uint nllines;
+			public uint nllines { get; set; }
 
 			/**
 			 * Number of right lines.
 			 */
-			public uint nrlines;
+			public uint nrlines { get; set; }
 
 			/**
 			 * Number of top lines.
 			 */
-			public uint noverlines;
+			public uint noverlines { get; set; }
 
 			/**
 			 * Number of bottom lines.
 			 */
-			public uint nunderlines;
+			public uint nunderlines { get; set; }
 
 			/**
 			 * Contents of the cell.
 			 */
-			public Glob contents = new Glob ();
+			public Glob contents { get; set; default = new Glob (); }
 
 			/**
 			 * Any text before the cell.
 			 */
-			public string before = "";
+			public string before { get; set; default = ""; }
 
 			/**
 			 * Any text after the cell.
 			 */
-			public string after = "";
+			public string after { get; set; default = ""; }
 
 			/**
 			 * Type of a cell indicates how much columns/rows does it occupy.

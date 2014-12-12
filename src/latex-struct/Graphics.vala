@@ -10,19 +10,19 @@ namespace LAview {
 		/**
 		 * All unknown parameters.
 		 */
-		public string rest_params = "";
+		public string rest_params { get; set; default = ""; }
 
 		/**
 		 * Path to the image on the disk.
 		 */
-		public string path = "";
+		public string path { get; set; default = ""; }
 
 		/**
 		 * Width of the image.
 		 *
 		 * For ex: 3.22, 128
 		 */
-		public double width;
+		public double width { get; set; }
 
 		/**
 		 * Width units of the image.
@@ -31,14 +31,14 @@ namespace LAview {
 		 * or \textwidth, \columnwidth, \pagewidth,
 		 * \linewidth, \textwidth, \paperwidth
 		 */
-		public string width_unit = "";
+		public string width_unit { get; set; default = ""; }
 
 		/**
 		 * Height of the image.
 		 *
 		 * For ex: 3.22, 128
 		 */
-		public double height;
+		public double height { get; set; }
 
 		/**
 		 * Height units of the image.
@@ -47,7 +47,7 @@ namespace LAview {
 		 * or \textwidth, \columnwidth, \pagewidth,
 		 * \linewidth, \textwidth, \paperwidth
 		 */
-		public string height_unit = "";
+		public string height_unit { get; set; default = ""; }
 
 		/**
 		 * Constructs a new ``Graphics`` by it's properties.

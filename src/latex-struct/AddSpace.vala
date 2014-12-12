@@ -13,7 +13,7 @@ namespace LAview {
 			 * Possible values: [0-9]+{bp,cc,cm,dd,em,ex,in,mm,pc,pt,sp} <<BR>>
 			 * or [0-9]+.[0-9][0-9]{\textwidth,columnwidth,paperwidth,linewidth,textheight,paperheight}
 			 */
-			public string height = "";
+			public string height { get; set; default = ""; }
 
 			/**
 			 * Constructs a new ``AddSpace`` based on value.

@@ -26,7 +26,7 @@ namespace LAview {
 			/**
 			 * Style of the {@link AddSpace}/{@link Subtable}.
 			 */
-			public Style style = Style.DEFAULT;
+			public Style style { get; set; default = Style.DEFAULT; }
 
 			/**
 			 * Constructs a new empty ``AddSpaces``.

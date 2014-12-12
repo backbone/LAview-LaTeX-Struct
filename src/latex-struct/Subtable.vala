@@ -10,22 +10,22 @@ namespace LAview {
 			/**
 			 * Caption of the table.
 			 */
-			public string caption = "";
+			public string caption { get; set; default = ""; }
 
 			/**
 			 * Any text before the ``Subtable``.
 			 */
-			public string before = "";
+			public string before { get; set; default = ""; }
 
 			/**
 			 * Any text after the ``Subtable``.
 			 */
-			public string after = "";
+			public string after { get; set; default = ""; }
 
 			/**
 			 * Style of the table (Default/Formal).
 			 */
-			public AddSpaces.Style style;
+			public AddSpaces.Style style { get; set; }
 
 			protected override ADocList create_default_instance () { return new Subtable (); }
 

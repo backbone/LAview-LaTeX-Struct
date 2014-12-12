@@ -36,42 +36,42 @@ namespace LAview {
 			 *
 			 * Possible values: 't', 'b'.
 			 */
-			public char align;
+			public char align { get; set; }
 
 			/**
 			 * Style of the {@link AddSpace}/{@link Subtable}.
 			 */
-			public AddSpaces.Style style;
+			public AddSpaces.Style style { get; set; }
 
 			/**
 			 * Parameters of columns.
 			 */
-			public ColParams params = new ColParams ();
+			public ColParams params { get; set; default = new ColParams (); }
 
 			/**
 			 * Main sutable.
 			 */
-			public Subtable table = new Subtable ();
+			public Subtable table { get; set; default = new Subtable (); }
 
 			/**
 			 * First Header.
 			 */
-			public Subtable first_header = new Subtable ();
+			public Subtable first_header { get; set; default = new Subtable (); }
 
 			/**
 			 * Header.
 			 */
-			public Subtable header = new Subtable ();
+			public Subtable header { get; set; default = new Subtable (); }
 
 			/**
 			 * Footer.
 			 */
-			public Subtable footer = new Subtable ();
+			public Subtable footer { get; set; default = new Subtable (); }
 
 			/**
 			 * Last Footer.
 			 */
-			public Subtable last_footer = new Subtable ();
+			public Subtable last_footer { get; set; default = new Subtable (); }
 
 			protected ATable () {}
 
