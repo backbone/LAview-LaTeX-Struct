@@ -21,9 +21,10 @@ namespace LAview {
 				this.position = position;
 
 				/* get parameters string */
-				var PARAM_REGEX_FIGBRANCHES = "\\{[^{}]*([^{}]*\\{[^{}]*\\}[^{}]*)*\\}";
-				var param_regex = "^(\\[(t|b)])?" + PARAM_REGEX_FIGBRANCHES + "("
-				                  + PARAM_REGEX_FIGBRANCHES + ")?";
+				var PAR_REG = "\\|*((>\\{[^{}*]+\\})?[^{}*]+\\{[^{}*]+\\}|[^{}*]+)\\|*";
+				// Bug #94: Parse Multiple defined columns in the tabular/longtable.
+				PAR_REG = "\\{((\\*\\{[0-9]+\\}\\{" + PAR_REG + "\\}|" + PAR_REG + "))*\\}";
+				var param_regex = "^(\\[(t|b)])?" + PAR_REG + "(" + PAR_REG + ")?";
 
 				string params = "";
 				uint start_pos = 0, stop_pos = 0;
@@ -55,8 +56,8 @@ namespace LAview {
 
 				/* width */
 				try {
-					if (Regex.match_simple (PARAM_REGEX_FIGBRANCHES + PARAM_REGEX_FIGBRANCHES, params)) {
-						var regex = new Regex (PARAM_REGEX_FIGBRANCHES);
+					if (Regex.match_simple ("^" + PAR_REG + PAR_REG + "$", params)) {
+						var regex = new Regex (PAR_REG);
 						MatchInfo match_info;
 						regex.match (params, 0, out match_info);
 						match_info.fetch_pos (0, out start_pos, out stop_pos);
@@ -74,17 +75,28 @@ namespace LAview {
 
 				/* match reversed params so '|' will be snapped to the right column */
 				try {
-					var regex = new Regex ("("
-					                   + "\\|*}[^{}]+{(p\\|*|m\\|*|b\\|*)(}[^{}]+{>(\\|+$|\\||)|\\|)?"
-					                   + "|"
-					                   + "\\|*(r|c|l)(}[^{}]+{@(p\\|*|m\\|*|b\\|*) (r|c|l))?(\\|+$|\\||)"
-					                   + ")");
+					var col_reg1 = "\\|*}[^{}]+{(p\\|*|m\\|*|b\\|*)(}[^{}]+{>(\\|+$|\\||)|\\|)?";
+					var col_reg2 = "\\|*(r|c|l)(}[^{}]+{@(p\\|*|m\\|*|b\\|*) (r|c|l))?(\\|+$|\\||)";
+					var regex = new Regex ("(" + col_reg1 + "|" + col_reg2
+					                       // Bug #94: Parse Multiple defined columns...
+					                       + "|\\}" + col_reg1 + "\\{\\}[0-9]+\\{\\*"
+					                       + "|\\}" + col_reg2 + "\\{\\}[0-9]+\\{\\*)");
 					params = params.reverse ();
 					MatchInfo match_info;
 					regex.match_full (params, -1, 0, 0, out match_info);
 					while (match_info.matches ()) {
 						var col_param = new ColParam.with_params (0, "", 0);
 						var word = match_info.fetch (0).reverse ().compress ();
+
+						// Bug #94: Parse Multiple defined columns in the tabular/longtable.
+						int count = 1;
+						if (word[0] == '*') {
+							count = int.parse (word.offset(2));
+							int start;
+							for (start = 2; word[start] != '{'; ++start);
+							word = word[start + 1:word.length - 1];
+						}
+
 						int nllines, nrlines;
 						for (nllines = 0; '|' == word[nllines]; ++nllines);
 						for (nrlines = word.length - 1; nrlines != 0 && '|' == word[nrlines]; --nrlines);
@@ -93,7 +105,10 @@ namespace LAview {
 						col_param.align = word.offset (nllines);
 						col_param.nllines = nllines;
 						col_param.nrlines = wlen - 1 - nrlines;
-						col_params.insert (0, col_param);
+
+						// Bug #94: Parse Multiple defined columns in the tabular/longtable.
+						while (count-- > 0) col_params.insert (0, col_param);
+
 						match_info.next ();
 					}
 				} catch (RegexError e) {}

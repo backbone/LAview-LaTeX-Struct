@@ -322,5 +322,12 @@ do_parse_test (back_slashes_in_a_table ${PROJECT_SOURCE_DIR}/test/tex/back_slash
 "Original and generated text are EQUAL .-.")
 SET_TESTS_PROPERTIES(ParseTest-back_slashes_in_a_table PROPERTIES ENVIRONMENT "LANG=en")
 
+# test multiply_defined_columns.tex
+do_parse_test (multiply_defined_columns
+    ${PROJECT_SOURCE_DIR}/test/tex/multiply_defined_columns.tex
+    ${PROJECT_SOURCE_DIR}/test/tex/multiply_defined_columns.etalon.tex
+"Original and generated text are EQUAL .-.")
+SET_TESTS_PROPERTIES(ParseTest-multiply_defined_columns PROPERTIES ENVIRONMENT "LANG=en")
+
 # enable testing
 ENABLE_TESTING ()
