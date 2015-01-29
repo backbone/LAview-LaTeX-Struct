@@ -43,14 +43,14 @@ public class Main : Object {
 		}
 
 		uint lim[3] = { 0, 0, 0};
-		var limits = new Array<Table.ATable.SplitLimit?> ();
+		var limits = new List<Table.ATable.SplitLimit?> ();
 
 		while (3 == stream.scanf ("%u %u %u", out lim[0], out lim[1], out lim[2])) {
 			var split_lim = Table.ATable.SplitLimit ();
 			split_lim.first = lim[0];
 			split_lim.last = lim[1];
 			split_lim.max_cols = lim[2];
-			limits.append_val (split_lim);
+			limits.append (split_lim);
 		}
 
 		/* read table */
