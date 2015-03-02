@@ -219,48 +219,48 @@ namespace LAview {
 				uint max_cols;
 			}
 
-			bool check_limits (Array<SplitLimit?> sorted_limits) {
+			bool check_limits (List<SplitLimit?> sorted_limits) {
 				/* check nearby limits */
-				for (var i = 1; i < sorted_limits.length; ++i)
-					if (sorted_limits.index (i - 1).last >= sorted_limits.index (i).first
-					    || sorted_limits.index (i).first > sorted_limits.index (i).last)
+				for (var i = 1; i < sorted_limits.length(); ++i)
+					if (sorted_limits.nth_data(i - 1).last >= sorted_limits.nth_data(i).first
+					    || sorted_limits.nth_data(i).first > sorted_limits.nth_data(i).last)
 						return false;
 
 				/* check limits of the first and last elements */
-				if (sorted_limits.index (0).first > sorted_limits.index (0).last
-				    || params.size <= sorted_limits.index (sorted_limits.length - 1).last)
+				if (sorted_limits.nth_data(0).first > sorted_limits.nth_data(0).last
+				    || params.size <= sorted_limits.nth_data(sorted_limits.length() - 1).last)
 					return false;
 
 				return true;
 			}
 
-			uint [] get_indexes (Array<SplitLimit?> sorted_limits) {
-				var lim_indexes = new uint[sorted_limits.length];
-				for (var i = 0; i < sorted_limits.length; ++i)
-					lim_indexes[i] = sorted_limits.index (i).first;
+			uint [] get_indexes (List<SplitLimit?> sorted_limits) {
+				var lim_indexes = new uint[sorted_limits.length()];
+				for (var i = 0; i < sorted_limits.length(); ++i)
+					lim_indexes[i] = sorted_limits.nth_data(i).first;
 				return lim_indexes;
 			}
 
-			ATable? split_table (Array<SplitLimit?> sorted_limits, uint [] lim_indexes,
+			ATable? split_table (List<SplitLimit?> sorted_limits, uint [] lim_indexes,
 				Row.OpLineStyle line_style) {
 
 				var return_table = copy () as ATable;
 				bool split_finish = true;
 
 				/* removing spare columns */
-				for (uint i = sorted_limits.length - 1; i < sorted_limits.length; --i) { // group
-					for (uint j = sorted_limits.index (i).last;
-					     j >= lim_indexes[i] + sorted_limits.index (i).max_cols
-					     && j <= sorted_limits.index (i).last; --j)
+				for (uint i = sorted_limits.length() - 1; i < sorted_limits.length(); --i) { // group
+					for (uint j = sorted_limits.nth_data(i).last;
+					     j >= lim_indexes[i] + sorted_limits.nth_data(i).max_cols
+					     && j <= sorted_limits.nth_data(i).last; --j)
 						return_table.remove_col ((int)j, line_style);
 
-					for (uint j = lim_indexes[i] - 1; j >= sorted_limits.index (i).first && j < lim_indexes[i]; --j)
+					for (uint j = lim_indexes[i] - 1; j >= sorted_limits.nth_data(i).first && j < lim_indexes[i]; --j)
 						return_table.remove_col ((int)j, line_style);
 
 					/* count indexes */
-					if (lim_indexes[i] <= sorted_limits.index (i).last) {
+					if (lim_indexes[i] <= sorted_limits.nth_data(i).last) {
 						split_finish = false;
-						lim_indexes[i] += sorted_limits.index (i).max_cols;
+						lim_indexes[i] += sorted_limits.nth_data(i).max_cols;
 					}
 				}
 
@@ -290,7 +290,7 @@ namespace LAview {
 			 *
 			 * @return number of ``ATable``s the table splitted to.
 			 */
-			public uint split (Glob glob, Array<SplitLimit?> limits,
+			public uint split (Glob glob, List<SplitLimit?> limits,
 			                   Row.OpLineStyle line_style = Row.OpLineStyle.BORDER_DBLLINES) throws SplitError {
 				/* is table a child of glob */
 				var glob_index = glob.index_of (this);
@@ -298,10 +298,9 @@ namespace LAview {
 					throw new SplitError.ISNT_CHILD (_("2nd param (ATable) isn't a child of the 1st (Glob)."));
 
 				/* sorting limits */
-				var sorted_limits = new Array<SplitLimit?>.sized (false, false, sizeof (SplitLimit), limits.length);
-				sorted_limits.append_vals (limits.data, limits.length);
+				var sorted_limits = limits.copy ();
 
-				sorted_limits.sort ((ref a, ref b) => {
+				sorted_limits.sort ((a, b) => {
 										if (a.first < b.first) return -1;
 										if (a.first > b.first) return 1;
 										return 0;
