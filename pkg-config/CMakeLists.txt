@@ -12,7 +12,7 @@ SET (PkgConfigName "${CMAKE_PROJECT_NAME}")
 SET (PkgConfigDescription "${PROJECT_DESCRIPTION}")
 SET (PkgConfigVersion "${MAJOR}.${MINOR}.${PATCH}")
 SET (PkgConfigLibs "-L\${libdir}")
-SET (PkgConfigLibs "${PkgConfigLibs} -l${PROJECT_LOWERCASE_NAME}-${MAJOR}")
+SET (PkgConfigLibs "${PkgConfigLibs} -l${PROJECT_LOWERCASE_NAME}.so.${MAJOR}")
 SET (PkgConfigLibsPrivate "")
 SET (PkgConfigCflags "")
 
