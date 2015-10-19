@@ -6,5 +6,4 @@ SET (REDHAT_SECTION "Applications/Text")
 SET (LICENSE "LGPLv3+")
 SET (WIN32_UNINSTALL_NAME "LVLatStr") # <= 8 symbols for the name
 
-LIST (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
-INCLUDE (CPackCommon)
+INCLUDE (CPackCommonRules)
