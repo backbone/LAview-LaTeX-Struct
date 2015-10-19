@@ -1,6 +1,1 @@
-INCLUDE (PkgConfigCommon)
-
-CONFIGURE_FILE (
-  "${CMAKE_CURRENT_SOURCE_DIR}/pkg-config.pc.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_LOWERCASE_NAME}-${MAJOR}.pc"
-)
+INCLUDE (PkgConfigCommonRules)
