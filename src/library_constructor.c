@@ -29,7 +29,7 @@ void __attribute__ ((constructor)) load_library (void)
 
 #if defined(_WIN32) || defined(_WIN64)
   (void) dwReason;    // avoid
-  (void) lpReserved;  // warngings
+  (void) lpReserved;  // warnings
   return TRUE;
 #endif
 }
