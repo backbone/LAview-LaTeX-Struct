@@ -7,7 +7,7 @@ SET (PROJECT_DESCRIPTION "LaTeX representation in the memory.")
 
 SET (MAJOR 0)
 SET (MINOR 1)
-SET (PATCH 8)
+SET (PATCH 9)
 
 LIST (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/backbone)
 
