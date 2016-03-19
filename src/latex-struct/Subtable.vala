@@ -10,7 +10,7 @@ namespace LAview {
 			/**
 			 * Caption of the table.
 			 */
-			public string caption { get; set; default = ""; }
+			public Text caption { get; set; default = new Text(""); }
 
 			/**
 			 * Any text before the ``Subtable``.
@@ -316,8 +316,9 @@ namespace LAview {
 
 				s.append (before);
 
-				if (caption != "") {
-					s.append (caption);
+				var caption_text = caption.generate ();
+				if (caption_text != "") {
+					s.append (caption_text);
 					if (size != 0)
 						s.append ("\\tabularnewline");
 				}
