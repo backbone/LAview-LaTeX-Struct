@@ -63,7 +63,7 @@ namespace LAview {
 			                             uint matched_tag_abspos_right) throws ParseError {
 			    // TODO: Similar ro TabularParser::process_tabularnewline (), make a template method?
 				if (in_caption) {
-					subtable.caption = contents[row_abs_pos:tag_left_abspos].compress ();
+					subtable.caption = new Text (contents[row_abs_pos:tag_left_abspos].compress ());
 					in_caption = false;
 				} else {
 					TokenType token = add_cell (subcontents);
@@ -349,7 +349,7 @@ namespace LAview {
 			void end_subtable (Table.ATable table,
 			                   TableTagType subtable_type, uint tag_left_abspos) {
 				if (in_caption) {
-					subtable.caption = contents[row_abs_pos:tag_left_abspos].compress ();
+					subtable.caption = new Text (contents[row_abs_pos:tag_left_abspos].compress ());
 					in_caption = false;
 				} else {
 					subtable.after = contents[row_abs_pos:tag_left_abspos];
