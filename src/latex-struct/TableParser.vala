@@ -63,7 +63,7 @@ namespace LAview {
 			                             uint matched_tag_abspos_right) throws ParseError {
 			    // TODO: Similar ro TabularParser::process_tabularnewline (), make a template method?
 				if (in_caption) {
-					subtable.caption = contents[row_abs_pos:tag_left_abspos].compress ();
+					subtable.caption = new Text (contents[row_abs_pos:tag_left_abspos].compress ());
 					in_caption = false;
 				} else {
 					TokenType token = add_cell (subcontents);
@@ -346,10 +346,10 @@ namespace LAview {
 				TOPRULE, MIDRULE, CMIDRULE, BOTTOMRULE, NOALIGN, ADDLINESPACE
 			}
 
-			void end_subtable (Table.ATable table,
+			void end_subtable (ATable table,
 			                   TableTagType subtable_type, uint tag_left_abspos) {
 				if (in_caption) {
-					subtable.caption = contents[row_abs_pos:tag_left_abspos].compress ();
+					subtable.caption = new Text (contents[row_abs_pos:tag_left_abspos].compress ());
 					in_caption = false;
 				} else {
 					subtable.after = contents[row_abs_pos:tag_left_abspos];
@@ -385,7 +385,7 @@ namespace LAview {
 				subtable = new Subtable ();
 			}
 
-			protected TokenType scan_tex_symbol (Table.ATable table) throws ParseError {
+			protected TokenType scan_tex_symbol (ATable table) throws ParseError {
 				var tag = 0U;
 				var matched_tag_length = fifo_is_tag (local_tokens_to_class_start, out tag);
 				var message = "";
