@@ -5,7 +5,7 @@ namespace LAview {
 		/**
 		 * Row in the {@link Subtable}.
 		 */
-		public class Row : ADocList {
+		public class Row : ADocList<Cell> {
 
 			/**
 			 * Expands {@link AddSpaces.Style}.
@@ -162,7 +162,7 @@ namespace LAview {
 				while (lines_type != LinesType.NONE) {
 					lines_type = LinesType.NONE;
 
-					foreach (var cell in lcount_row as Gee.ArrayList<Cell>) {
+					foreach (var cell in lcount_row) {
 						if (overline && cell.noverlines != 0
 						    || !overline && cell.nunderlines != 0) {
 							if (lines_type == LinesType.NONE) {
@@ -208,7 +208,7 @@ namespace LAview {
 						uint cline_begin = 0, cline_end = 0;
 						var where = Where.SEARCH_BEGIN;
 						for (var idx = 0, max_idx = lcount_row.size; idx < max_idx; ++idx) {
-							var cell = lcount_row[idx] as Cell;
+							var cell = lcount_row[idx];
 
 							switch (where) {
 								case Where.SEARCH_BEGIN:
@@ -216,8 +216,8 @@ namespace LAview {
 									    || !overline && cell.nunderlines != 0) {
 
 										if (idx + 1 < max_idx
-										    && (overline && (lcount_row[idx + 1] as Cell).noverlines != 0
-										        || !overline && (lcount_row[idx + 1] as Cell).nunderlines != 0)) {
+										    && (overline && lcount_row[idx + 1].noverlines != 0
+										        || !overline && lcount_row[idx + 1].nunderlines != 0)) {
 											cline_end = cline_begin + cell.ncells;
 											where = Where.SEARCH_END;
 										} else {
@@ -236,8 +236,8 @@ namespace LAview {
 									break;
 								case Where.SEARCH_END:
 									if (idx + 1 >= max_idx
-									    || overline && (lcount_row[idx + 1] as Cell).noverlines == 0
-									    || !overline && (lcount_row[idx + 1] as Cell).nunderlines == 0) {
+									    || overline && lcount_row[idx + 1].noverlines == 0
+									    || !overline && lcount_row[idx + 1].nunderlines == 0) {
 										if (clines_added)
 											s.append_c (' ');
 											s.append_printf (lcount_row.style != Style.DEFAULT ?
@@ -258,7 +258,7 @@ namespace LAview {
 						}
 					}
 
-					foreach (var cell in lcount_row as Gee.ArrayList<Cell>) {
+					foreach (var cell in lcount_row) {
 						if (overline && cell.noverlines != 0
 						    || !overline && cell.nunderlines != 0) {
 							if (overline)
@@ -279,14 +279,14 @@ namespace LAview {
 
 				if ((line_style & OpLineStyle.VBORDER) != 0) {
 					if (index < 0 || index >= size) {
-						var last_cell = get (size - 1) as Cell;
+						var last_cell = this[size - 1];
 						if (last_cell.multitype == Cell.Multitype.MULTICOL
 						    || last_cell.multitype == Cell.Multitype.MULTICOLROW)
 							cell.nrlines = last_cell.nrlines;
 					} else if (index == 0) {
-						if ((get (index) as Cell).multitype == Cell.Multitype.MULTICOL
-						    || (get (index) as Cell).multitype == Cell.Multitype.MULTICOLROW)
-							cell.nllines = (get (index) as Cell).nllines;
+						if (this[index].multitype == Cell.Multitype.MULTICOL
+						    || this[index].multitype == Cell.Multitype.MULTICOLROW)
+							cell.nllines = this[index].nllines;
 					}
 				}
 
@@ -294,7 +294,7 @@ namespace LAview {
 					var prev_index = index - 1;
 
 					if (index >= 0 && index < size) { // next == [index]
-						var idx_cell = get (index) as Cell;
+						var idx_cell = this[index];
 						if (idx_cell.multitype == Cell.Multitype.MULTICOL
 						    || idx_cell.multitype == Cell.Multitype.MULTICOLROW ) {
 							idx_cell.nllines = cell.nrlines != 0 || idx_cell.nllines != 0 ? 1 : 0;
@@ -307,7 +307,7 @@ namespace LAview {
 					if (prev_index >= 0 && prev_index < size
 					    && (cell.multitype == Cell.Multitype.MULTICOL
 					                   || cell.multitype == Cell.Multitype.MULTICOLROW)) {
-					    var idx_cell = get (prev_index) as Cell;
+					    var idx_cell = this[prev_index];
 						cell.nllines = idx_cell.nrlines != 0 || cell.nllines != 0 ? 1 : 0;
 						idx_cell.nrlines = 0;
 					}
@@ -334,21 +334,21 @@ namespace LAview {
 			 * @param line_style {@link Row.OpLineStyle} of the operation.
 			 */
 			public new Cell remove_at (int index, Row.OpLineStyle line_style = Row.OpLineStyle.BORDER_DBLLINES) {
-			    var cell = get (index) as Cell;
+			    var cell = this[index];
 				if ((line_style & OpLineStyle.VBORDER) != 0
 				    && (cell.multitype == Cell.Multitype.MULTICOL
 				        || cell.multitype == Cell.Multitype.MULTICOLROW)) {
 					if (size > 1) {
 						if (index == 0)
-							(get (1) as Cell).nllines = cell.nllines;
+							this[1].nllines = cell.nllines;
 						else if (index == size - 1)
-							(get (size - 2) as Cell).nrlines = cell.nrlines;
+							this[size - 2].nrlines = cell.nrlines;
 					}
 
 					if ((line_style & OpLineStyle.VDBLLINES) != 0) {
 						if (index > 0 && index + 1 < size) {
-							var prev = get (index - 1) as Cell,
-							    next = get (index + 1) as Cell;
+							var prev = this[index - 1],
+							    next = this[index + 1];
 							    if (next.multitype == Cell.Multitype.MULTICOL
 							        || next.multitype == Cell.Multitype.MULTICOLROW) {
 								next.nllines = prev.nrlines != 0 || next.nllines != 0 ? 1 : 0;
@@ -358,7 +358,7 @@ namespace LAview {
 					}
 				}
 
-				return base.remove_at (index) as Cell;
+				return base.remove_at (index);
 			}
 
 			/**

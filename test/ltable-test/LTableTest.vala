@@ -75,7 +75,7 @@ public class Main : Object {
 					ltable.clone_col (1000, 0, true);
 				} else if (args[3] == "append_row0") {
 					var table = ltable.table;
-					table.add (table.get (0).copy () as Table.Row);
+					table.add (table[0].copy () as Table.Row);
 				} else {
 					stdout.printf ("Incorrect operation '%s' specified.\n", args[3]);
 					return -1;
@@ -84,7 +84,7 @@ public class Main : Object {
 				if (args[3] == "append_row0") {
 					var tabular = subdoc as Table.Tabular;
 					var table = tabular.table;
-					table.add (table.get (0).copy () as Table.Row);
+					table.add (table[0].copy () as Table.Row);
 				}
 			}
 		}

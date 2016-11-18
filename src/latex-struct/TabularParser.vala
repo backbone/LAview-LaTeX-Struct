@@ -107,7 +107,7 @@ namespace LAview {
 						col_param.nrlines = wlen - 1 - nrlines;
 
 						// Bug #94: Parse Multiple defined columns in the tabular/longtable.
-						while (count-- > 0) col_params.insert (0, col_param.copy ());
+						while (count-- > 0) col_params.insert (0, col_param.copy () as ColParam);
 
 						match_info.next ();
 					}

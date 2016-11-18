@@ -5,7 +5,7 @@ namespace LAview {
 		/**
 		 * List of Column Parameters.
 		 */
-		public class ColParams : ADocList {
+		public class ColParams : ADocList<ColParam> {
 
 			protected override ADocList create_default_instance () { return new ColParams (); }
 

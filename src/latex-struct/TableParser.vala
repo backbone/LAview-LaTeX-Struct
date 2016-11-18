@@ -232,7 +232,7 @@ namespace LAview {
 				var subdoc = subparserGlobal.parse (cell_contents, subdoc_start.line, subdoc_start.pos);
 
 				unowned List<int> clines_p = clines.first ();
-				foreach (var cell in row as Gee.ArrayList<Cell>) {
+				foreach (var cell in row) {
 					if (clines_p == null) break;
 
 					for (var i = 0, max_i = cell.ncells; i < max_i; ++i) {
@@ -258,7 +258,7 @@ namespace LAview {
 				switch (lines_type) {
 					case Row.LinesType.HLINE:
 						if (subtable.size != 0) {
-							foreach (var cell in subtable.get (subtable.size - 1) as Gee.ArrayList<Cell>) {
+							foreach (var cell in subtable[subtable.size - 1]) {
 								cell.nunderlines += nhlines;
 								clear_lines = true;
 							}
@@ -268,9 +268,9 @@ namespace LAview {
 						/* #85 Assert in LINE_CLINES case */
 						if (row.size == 0 && subtable.size == 0)
 							break;
-						var tmp_row = row.size != 0 ? row : subtable.get (subtable.size - 1) as Row;
+						var tmp_row = row.size != 0 ? row : subtable[subtable.size - 1];
 						unowned List<int> clines_p = clines.first ();
-						foreach (var cell in tmp_row as Gee.ArrayList<Cell>) {
+						foreach (var cell in tmp_row) {
 							if (clines_p == null) break;
 
 							if (clines_p != null && clines_p.data != 0)
@@ -313,7 +313,7 @@ namespace LAview {
 
 				Row last_row;
 				if (subtable.size != 0)
-					last_row = subtable.get(subtable.size-1) as Row;
+					last_row = subtable[subtable.size-1];
 				else
 					last_row = new Row ();
 
@@ -322,7 +322,7 @@ namespace LAview {
 				} else if (row.top.size == 0 || subtable.size == 0) {
 					row.top.add (add_space);
 				} else if (row.top.size == 1 && subtable.size != 0) {
-					last_row.between.add (row.top.get (0) as AddSpace);
+					last_row.between.add (row.top[0]);
 					row.top.remove_at (0);
 					row.top.add (add_space);
 				}
@@ -331,7 +331,7 @@ namespace LAview {
 			protected void spaces_to_last_row () {
 				var top = row.top;
 				if (top.size == 1 && subtable.size != 0) {
-					(subtable.get (subtable.size - 1) as Row).between.add (top.get (0) as AddSpace);
+					subtable[subtable.size - 1].between.add (top[0]);
 					top.remove_at (0);
 				}
 			}
@@ -522,11 +522,9 @@ namespace LAview {
 							case TableTagType.DBLBACKSLASHES:
 							case TableTagType.TABULARNEWLINE:
 								if (tag == TableTagType.DBLBACKSLASHES) {
-									var row_length = row.size;
-
 									var col_param = "";
-									if (row_length < table.params.size)
-										col_param = (table.params.get (row_length) as ColParam).align;
+									if (row.size < table.params.size)
+										col_param = table.params[row.size].align;
 									if (col_param != ""
 									    && (col_param.index_of_char ('p') != -1
 									        || col_param.index_of_char ('b') != -1

@@ -3,7 +3,7 @@ namespace LAview {
 	/**
 	 * List of any LaTeX documents except Glob documents.
 	 */
-	public class Glob : ADocList {
+	public class Glob : ADocList<IDoc> {
 
 		protected override ADocList create_default_instance () { return new Glob (); }
 

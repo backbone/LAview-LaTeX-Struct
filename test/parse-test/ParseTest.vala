@@ -60,22 +60,21 @@ public class Main : Object {
 		foreach (var subdoc in doc) {
 			stdout.printf ("%s\n", subdoc.get_type ().name ());
 
-			if (subdoc.get_type ().name () == "LAviewTableTabular"
-			    || subdoc.get_type ().name () == "LAviewTableLongtable") {
+			if (subdoc is Table.Tabular || subdoc is Table.Longtable) {
 
 			    unowned Table.Subtable subtable = null;
 
-				if (subdoc.get_type ().name () == "LAviewTableTabular")
+				if (subdoc is Table.Tabular)
 					subtable = (subdoc as Table.Tabular).table;
 				else
 					subtable = (subdoc as Table.Longtable).table;
 
 				foreach (var row in subtable) {
-					foreach (var cell in (row as Table.Row)) {
-						var glob = (cell as Table.Cell).contents;
+					foreach (var cell in row) {
+						var glob = cell.contents;
 
 						foreach (var glob_subdoc in glob) {
-							if (glob_subdoc.get_type ().name () != "LAviewText") {
+							if (!( glob_subdoc is LAview.Text )) {
 								stdout.printf ("  %s\n", glob_subdoc.get_type ().name ());
 							}
 						}
@@ -90,7 +89,7 @@ public class Main : Object {
 		foreach (var subdoc in doc) {
 			stdout.printf ("%s\n", subdoc.get_type ().name ());
 
-			if (subdoc.get_type ().name () == "LAviewGraphics") {
+			if (subdoc is LAview.Graphics) {
 				var graphics = subdoc as Graphics;
 				stdout.printf ("  width=%f%s, height=%f%s, path=%s,\n  gen()=%s\n",
 				               graphics.width, graphics.width_unit, graphics.height, graphics.height_unit,

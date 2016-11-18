@@ -49,7 +49,7 @@ namespace LAview {
 			public ColParams params { get; set; default = new ColParams (); }
 
 			/**
-			 * Main sutable.
+			 * Main subtable.
 			 */
 			public Subtable table { get; set; default = new Subtable (); }
 
@@ -111,21 +111,21 @@ namespace LAview {
 			                            = Row.OpLineStyle.BORDER_DBLLINES) {
 				if (index >= params.size) return;
 
-				var param = params.get (index) as ColParam;
+				var param = params[index];
 
 				if ((line_style & Row.OpLineStyle.VBORDER) != 0 && param.align != "") {
 					if (params.size > 1) {
 						if (index == 0)
-							(params.get (1) as ColParam).nllines = param.nllines;
+							params[1].nllines = param.nllines;
 						else if (index == params.size - 1)
-							(params.get (params.size - 2) as ColParam).nrlines = param.nrlines;
+							params[params.size - 2].nrlines = param.nrlines;
 					}
 				}
 
 				if ((line_style & Row.OpLineStyle.VDBLLINES) != 0) {
 					if (index > 0 && index < params.size - 1) {
-						var prev = params.get (index - 1) as ColParam,
-						    next = params.get (index + 1) as ColParam;
+						var prev = params[index - 1],
+						    next = params[index + 1];
 					    next.nllines = prev.nrlines != 0 || next.nllines != 0 ? 1 : 0;
 					    prev.nrlines = 0;
 					}
@@ -153,15 +153,15 @@ namespace LAview {
 			                           = Row.OpLineStyle.BORDER_DBLLINES) {
 				if (src_index >= params.size || dest_index > params.size) return;
 
-				var param = params.get (src_index).copy () as ColParam;
+				var param = params[src_index].copy () as ColParam;
 
 				if ((Row.OpLineStyle.VBORDER & line_style) != 0) {
 					if (dest_index >= params.size) {
-						var last_param = params.get (params.size - 1) as ColParam;
+						var last_param = params[params.size - 1];
 						if (last_param.align != "")
 							param.nrlines = last_param.nrlines;
 					} else {
-						var first_param = params.get (0) as ColParam;
+						var first_param = params[0];
 						if (dest_index == 0 && first_param.align != "")
 							param.nllines = first_param.nllines;
 					}
@@ -174,7 +174,7 @@ namespace LAview {
 					if (dest_index < params.size) {
 						prev_index = dest_index > 0 ? dest_index - 1 : 0;
 						if (prev_index > 0) prev_edit = true;
-						var dest_param = params.get (dest_index) as ColParam;
+						var dest_param = params[dest_index];
 						dest_param.nllines = param.nrlines != 0 || dest_param.nllines != 0 ? 1 : 0;
 						param.nrlines = 0;
 					} else {
@@ -183,7 +183,7 @@ namespace LAview {
 					}
 
 					if (prev_edit) {
-						var prev_param = params.get (prev_index) as ColParam;
+						var prev_param = params[prev_index];
 						param.nllines = prev_param.nrlines != 0 || param.nllines != 0 ? 1 : 0;
 						prev_param.nrlines = 0;
 					}

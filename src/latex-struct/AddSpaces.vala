@@ -5,7 +5,7 @@ namespace LAview {
 		/**
 		 * List of {@link AddSpace}-s.
 		 */
-		public class AddSpaces : ADocList {
+		public class AddSpaces : ADocList<AddSpace> {
 
 			/**
 			 * Style of the {@link AddSpace}/{@link Subtable}.

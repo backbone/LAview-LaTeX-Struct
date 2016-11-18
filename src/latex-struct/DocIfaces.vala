@@ -39,14 +39,14 @@ namespace LAview {
 	/**
 	 * Any iterable LaTeX Document.
 	 */
-	public abstract class ADocList : Gee.ArrayList<IDoc>, IDoc {
+	public abstract class ADocList<T> : Gee.ArrayList<T>, IDoc {
 
 		protected ADocList () {}
 
 		/**
 		 * Object.new (this.get_type ()) doesn't work for me for ArrayList.
 		 */
-		protected abstract ADocList create_default_instance ();
+		protected abstract ADocList<T> create_default_instance ();
 
 		/**
 		 * Gets a copy of the ``ADocList``.
@@ -54,8 +54,8 @@ namespace LAview {
 		public virtual IDoc copy () {
 			var clone = create_default_instance ();
 
-			foreach (IDoc dociface in this)
-				clone.add (dociface.copy () as IDoc);
+			foreach (T dociface in this)
+				clone.add ((dociface as IDoc).copy ());
 
 			return clone;
 		}
@@ -66,8 +66,8 @@ namespace LAview {
 		public virtual string generate () {
 			var result = new StringBuilder ();
 
-			foreach (IDoc dociface in this)
-				result.append (dociface.generate ());
+			foreach (T dociface in this)
+				result.append ((dociface as IDoc).generate ());
 
 			return result.str;
 		}

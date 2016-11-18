@@ -5,7 +5,7 @@ namespace LAview {
 		/**
 		 * Subtable in the {@link ATable}.
 		 */
-		public class Subtable : ADocList {
+		public class Subtable : ADocList<Row> {
 
 			/**
 			 * Caption of the table.
@@ -51,8 +51,8 @@ namespace LAview {
 				uint dncells = 0, sncells = 0;
 
 				while (si < max_si && di < max_di) {
-					var scell = src_row.get (si) as Cell;
-					var dcell = dest_row.get (di) as Cell;
+					var scell = src_row[si];
+					var dcell = dest_row[di];
 
 					dncells = dncells != 0 ? dncells
 					        : uint.max (1, dcell.multitype == Cell.Multitype.MULTICOL ?
@@ -76,8 +76,8 @@ namespace LAview {
 				uint tncells = 0, bncells = 0;
 
 				while (ti < max_ti && bi < max_bi) {
-					var tcell = top_row.get (ti) as Cell;
-					var bcell = bottom_row.get (bi) as Cell;
+					var tcell = top_row[ti];
+					var bcell = bottom_row[bi];
 
 					tncells = tncells != 0 ? tncells
 					        : uint.max (1, tcell.multitype == Cell.Multitype.MULTICOL ?
@@ -99,7 +99,7 @@ namespace LAview {
 
 				if ((line_style & Row.OpLineStyle.HBORDER) != 0) {
 					if (row2 == null)
-						process_border_lines (row, get (size - 1) as Row, false);
+						process_border_lines (row, this[size - 1], false);
 					else if (index_of (row2) == 0)
 						process_border_lines (row, row2, true);
 				}
@@ -108,10 +108,10 @@ namespace LAview {
 					Row prev = null;
 
 					if (row2 != null) { // next == iter
-						prev = get (index_of (row2) - 1) as Row;
+						prev = this[index_of (row2) - 1];
 						process_double_lines (row, row2);
 					} else {
-						prev = get (size - 1) as Row;
+						prev = this[size - 1];
 					}
 
 					if (prev != null)
@@ -126,10 +126,10 @@ namespace LAview {
 			 * @param line_style {@link Row.OpLineStyle} of the operation.
 			 */
 			public void remove_col (uint index, Row.OpLineStyle line_style = Row.OpLineStyle.BORDER_DBLLINES) {
-				foreach (Row row in this as Gee.ArrayList<Row>) {
+				foreach (Row row in this) {
 					uint mindx = 0;
 
-					foreach (var cell in row as Gee.ArrayList<Cell>) {
+					foreach (var cell in row) {
 						uint ncells = 1;
 
 						if (cell.multitype == Cell.Multitype.MULTICOL)
@@ -158,12 +158,12 @@ namespace LAview {
 			 */
 			public void clone_col (uint src_index, uint dest_index,
 			                       bool multicol, Row.OpLineStyle line_style = Row.OpLineStyle.BORDER_DBLLINES) {
-				foreach (var row in this as Gee.ArrayList<Row>) {
+				foreach (var row in this) {
 					uint mindx = 0;
 					var sidx = -1;
 					var didx = -1;
 
-					foreach (var cell in row as Gee.ArrayList<Cell>) {
+					foreach (var cell in row) {
 						uint ncells = 1;
 
 						if (cell.multitype == Cell.Multitype.MULTICOL)
@@ -176,7 +176,7 @@ namespace LAview {
 							didx = row.index_of (cell);
 
 						if (sidx != -1 && didx != -1) {
-							var cell2 = row.get (sidx).copy () as Cell;
+							var cell2 = row[sidx].copy () as Cell;
 							if (!multicol && cell2.multitype == Cell.Multitype.MULTICOL)
 								cell2.ncells = 1;
 							row.insert (didx, cell2, line_style);
@@ -193,15 +193,14 @@ namespace LAview {
 						Cell cell;
 
 						while (mindx < dest_index) {
-							var row_size = row.size;
-							cell = row.get (row_size - 1).copy () as Cell;
+							cell = row[row.size - 1].copy () as Cell;
 							cell.contents = empty_global_doc;
 							cell.ncells = 1;
 							row.add (cell, line_style);
 							mindx++;
 						}
 
-						cell = row.get (sidx).copy () as Cell;
+						cell = row[sidx].copy () as Cell;
 						if (!multicol && cell.multitype == Cell.Multitype.MULTICOL)
 							cell.ncells = 1;
 						row.add (cell, line_style);
@@ -231,17 +230,17 @@ namespace LAview {
 			public new Row remove_at (int index, Row.OpLineStyle line_style = Row.OpLineStyle.BORDER_DBLLINES) {
 				if (size > 1 && 0 != line_style & Row.OpLineStyle.HBORDER) {
 					if (index == 0)
-						process_border_lines (get (1) as Row, get (index) as Row, true);
+						process_border_lines (this[1], this[index], true);
 					else if (index == size - 1)
-						process_border_lines (get (size - 2) as Row, get (index) as Row, false);
+						process_border_lines (this[size - 2], this[index], false);
 				}
 
 				if ((line_style & Row.OpLineStyle.HDBLLINES) != 0)
 					if (index > 0 && index + 1 < size)
-						process_double_lines (get (index + 1) as Row,
-						                      get (index - 1) as Row);
+						process_double_lines (this[index + 1],
+						                      this[index - 1]);
 
-				return base.remove_at (index) as Row;
+				return base.remove_at (index);
 			}
 
 			/**
@@ -252,7 +251,7 @@ namespace LAview {
 			 * @param line_style {@link Row.OpLineStyle} of the operation.
 			 */
 			public new void insert (int index, Row row, Row.OpLineStyle line_style = Row.OpLineStyle.BORDER_DBLLINES) {
-				process_opline_insert (row, get (index) as Row, line_style);
+				process_opline_insert (row, this[index], line_style);
 				base.insert (index, row);
 			}
 
@@ -283,12 +282,12 @@ namespace LAview {
 
 				uint min_olines = 0, min_ulines = 0;
 
-				foreach (var cell in row as Gee.ArrayList<Cell>) {
+				foreach (var cell in row) {
 					min_olines = uint.min (min_olines, cell.noverlines);
 					min_ulines = uint.min (min_ulines, cell.nunderlines);
 				}
 
-				foreach (var cell in row as Gee.ArrayList<Cell>) {
+				foreach (var cell in row) {
 					switch (row_pos) {
 						case RowPos.FIRST:
 							cell.noverlines = uint.min (min_olines + 1, cell.noverlines);
@@ -323,7 +322,7 @@ namespace LAview {
 						s.append ("\\tabularnewline");
 				}
 
-				foreach (var row in this as Gee.ArrayList<Row>) {
+				foreach (var row in this) {
 					var row_style = Row.Style.DEFAULT;
 
 					if (style != AddSpaces.Style.DEFAULT) {
