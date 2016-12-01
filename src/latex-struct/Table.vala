@@ -286,11 +286,12 @@ namespace LAview {
 			 *
 			 * @param glob {@link Glob} document with a ``ATable``.
 			 * @param limits array of {@link SplitLimit}s.
+			 * @param delimiter any LaTeX code to separate new tables, '\\', for ex
 			 * @param line_style {@link Row.OpLineStyle} of the operation.
 			 *
 			 * @return number of ``ATable``s the table splitted to.
 			 */
-			public uint split (Glob glob, List<SplitLimit?> limits,
+			public uint split (Glob glob, List<SplitLimit?> limits, string delimiter = "",
 			                   Row.OpLineStyle line_style = Row.OpLineStyle.BORDER_DBLLINES) throws SplitError {
 				/* is table a child of glob */
 				var glob_index = glob.index_of (this);
@@ -310,13 +311,17 @@ namespace LAview {
 				if (!check_limits (sorted_limits))
 					throw new SplitError.INDEX_ERROR (_("3rd param (limits) is incorrect. Read the manual."));
 
-				/* split the table on several longtables inserting them before glob_index + 1 */
+				/* split the table on several tables inserting them before glob_index + 1 */
 				var lim_indexes = get_indexes (sorted_limits);
 
 				ATable temp_table;
 				uint result = 0;
 				var part_idx = glob_index + 1;
 				while (null != (temp_table = split_table (sorted_limits, lim_indexes, line_style))) {
+					if (delimiter != "" && part_idx != glob_index + 1) {
+						glob.insert (part_idx++, new Text(delimiter));
+						++result;
+					}
 					glob.insert (part_idx++, temp_table);
 					++result;
 				}
