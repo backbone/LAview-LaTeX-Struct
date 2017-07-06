@@ -33,7 +33,7 @@ namespace LAview {
 			 */
 			public AddSpaces () {}
 
-			protected override ADocList create_default_instance () { return new AddSpaces (); }
+			protected override ADocList<AddSpace> create_default_instance () { return new AddSpaces (); }
 
 			/**
 			 * Gets a copy of the ``AddSpaces``.

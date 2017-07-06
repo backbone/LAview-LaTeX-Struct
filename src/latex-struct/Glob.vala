@@ -5,7 +5,7 @@ namespace LAview {
 	 */
 	public class Glob : ADocList<IDoc> {
 
-		protected override ADocList create_default_instance () { return new Glob (); }
+		protected override ADocList<IDoc> create_default_instance () { return new Glob (); }
 
 		/**
 		 * Constructs a new empty ``Glob``.

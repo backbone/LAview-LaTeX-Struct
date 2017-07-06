@@ -27,7 +27,7 @@ namespace LAview {
 			 */
 			public AddSpaces.Style style { get; set; }
 
-			protected override ADocList create_default_instance () { return new Subtable (); }
+			protected override ADocList<Row> create_default_instance () { return new Subtable (); }
 
 			/**
 			 * Constructs a new empty ``Subtable``.

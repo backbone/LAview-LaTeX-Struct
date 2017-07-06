@@ -137,7 +137,7 @@ namespace LAview {
 			 */
 			public Row () {}
 
-			protected override ADocList create_default_instance () { return new Row (); }
+			protected override ADocList<Cell> create_default_instance () { return new Row (); }
 
 			/**
 			 * Gets a copy of the ``Row``.
