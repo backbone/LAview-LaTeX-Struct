@@ -1,6 +1,7 @@
 SET (BinName parse_test)
 FILE (GLOB_RECURSE BinSources RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ParseTest.vala)
 SET (BinPackages gee-0.8)
+SET (BinPkgModules gee-0.8)
 SET (BinCustomVapis ${CMAKE_BINARY_DIR}/src/latex-struct/${PROJECT_LOWERCASE_NAME}-${MAJOR}.vapi)
 SET (BinLinkLibs ${PROJECT_LOWERCASE_NAME})
 INCLUDE_DIRECTORIES ("${CMAKE_BINARY_DIR}/src/latex-struct")
