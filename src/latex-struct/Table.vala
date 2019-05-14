@@ -219,7 +219,7 @@ namespace LAview {
 				uint max_cols;
 			}
 
-			bool check_limits (List<SplitLimit?> sorted_limits) {
+			bool check_limits (List<weak SplitLimit?> sorted_limits) {
 				/* check nearby limits */
 				for (var i = 1; i < sorted_limits.length(); ++i)
 					if (sorted_limits.nth_data(i - 1).last >= sorted_limits.nth_data(i).first
@@ -234,14 +234,14 @@ namespace LAview {
 				return true;
 			}
 
-			uint [] get_indexes (List<SplitLimit?> sorted_limits) {
+			uint [] get_indexes (List<weak SplitLimit?> sorted_limits) {
 				var lim_indexes = new uint[sorted_limits.length()];
 				for (var i = 0; i < sorted_limits.length(); ++i)
 					lim_indexes[i] = sorted_limits.nth_data(i).first;
 				return lim_indexes;
 			}
 
-			ATable? split_table (List<SplitLimit?> sorted_limits, uint [] lim_indexes,
+			ATable? split_table (List<weak SplitLimit?> sorted_limits, uint [] lim_indexes,
 				Row.OpLineStyle line_style) {
 
 				var return_table = copy () as ATable;
