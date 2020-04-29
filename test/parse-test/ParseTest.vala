@@ -64,10 +64,15 @@ public class Main : Object {
 
 			    unowned Table.Subtable subtable = null;
 
-				if (subdoc is Table.Tabular)
-					subtable = (subdoc as Table.Tabular).table;
-				else
-					subtable = (subdoc as Table.Longtable).table;
+				if (subdoc is Table.Tabular) {
+					var t = subdoc as Table.Tabular;
+					assert (t != null);
+					subtable = t.table;
+				} else {
+					var t = subdoc as Table.Longtable;
+					assert (t != null);
+					subtable = t.table;
+				}
 
 				foreach (var row in subtable) {
 					foreach (var cell in row) {

@@ -19,7 +19,7 @@ namespace LAview {
 
 			protected bool in_caption = false;
 
-			public TableParser (Array<Link> links) {
+			protected TableParser (Array<Link> links) {
 				base (links);
 
 				group.append_val (new Link ({}, {}));

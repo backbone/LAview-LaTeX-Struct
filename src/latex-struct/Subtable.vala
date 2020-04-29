@@ -228,7 +228,7 @@ namespace LAview {
 			 * @param line_style {@link Row.OpLineStyle} of the operation.
 			 */
 			public new Row remove_at (int index, Row.OpLineStyle line_style = Row.OpLineStyle.BORDER_DBLLINES) {
-				if (size > 1 && 0 != line_style & Row.OpLineStyle.HBORDER) {
+				if (size > 1 && 0 != (line_style & Row.OpLineStyle.HBORDER)) {
 					if (index == 0)
 						process_border_lines (this[1], this[index], true);
 					else if (index == size - 1)

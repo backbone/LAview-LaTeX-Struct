@@ -82,7 +82,7 @@ namespace LAview {
 			/* back-slash counter for one-line comments */
 			protected uint back_slash_counter = 0;
 
-			public Parser (Array<Link> links) {
+			protected Parser (Array<Link> links) {
 
 				/* initializing scanner links */
 				this.links = links;

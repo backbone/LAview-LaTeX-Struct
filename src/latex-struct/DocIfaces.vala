@@ -54,8 +54,11 @@ namespace LAview {
 		public virtual IDoc copy () {
 			var clone = create_default_instance ();
 
-			foreach (T dociface in this)
-				clone.add ((dociface as IDoc).copy ());
+			foreach (T dociface in this) {
+				var doc = dociface as IDoc;
+				assert (doc != null);
+				clone.add (doc.copy ());
+			}
 
 			return clone;
 		}
@@ -66,8 +69,11 @@ namespace LAview {
 		public virtual string generate () {
 			var result = new StringBuilder ();
 
-			foreach (T dociface in this)
-				result.append ((dociface as IDoc).generate ());
+			foreach (T dociface in this) {
+				var doc = dociface as IDoc;
+				assert (doc != null);
+				result.append (doc.generate ());
+			}
 
 			return result.str;
 		}
